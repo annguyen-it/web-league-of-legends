@@ -28,5 +28,26 @@ namespace Crawler.Model
 
         [JsonPropertyName("image")]
         public Image Image { get; set; }
+
+        [JsonPropertyName("info")]
+        public ChampionInfo Info { get; set; }
+
+        [JsonPropertyName("tags")]
+        public List<string> Tags { get; set; }
+
+        [JsonPropertyName("stats")]
+        public ChampionStats Stats { get; set; }
+
+        [JsonPropertyName("passive")]
+        public ChampionPassive? Passive { get; set; }
+
+        [JsonPropertyName("spells")]
+        public List<ChampionSpell>? Spells { get; set; }
+
+        [JsonPropertyName("allyTips")]
+        public List<string>? AllyTips { get; set; }
+
+        [JsonPropertyName("enemyTips")]
+        public List<string>? EnemyTips { get; set; }
     }
 }
