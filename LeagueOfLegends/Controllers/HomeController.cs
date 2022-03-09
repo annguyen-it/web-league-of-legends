@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueOfLegends.Models.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,7 @@ namespace LeagueOfLegends.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Canvas1 = new CanvasRect();
             return View();
         }
 

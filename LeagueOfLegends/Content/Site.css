@@ -22,3 +22,73 @@ select,
 textarea {
     max-width: 280px;
 }
+
+@font-face {
+    font-family: 'Spiegel';
+    font-weight: 400;
+    font-style: normal;
+    src: url("../fonts/Spiegel-Regular.woff");
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    font-weight: 500;
+    font-style: normal;
+    src: url("../fonts/Spiegel-Regular.woff");
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    font-weight: 600;
+    font-style: normal;
+    src: url("../fonts/Spiegel-SemiBold.woff");
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    font-weight: 700;
+    font-style: normal;
+    src: url("../fonts/Spiegel-SemiBold.woff");
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    font-weight: 600;
+    font-style: italic;
+    src: url("../fonts/Spiegel-SemiBoldItalic.woff");
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    font-weight: 700;
+    font-style: italic;
+    src: url("../fonts/Spiegel-SemiBoldItalic.woff");
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    font-weight: 800;
+    font-style: normal;
+    src: url("../fonts/Spiegel-Bold.woff");
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    font-weight: 900;
+    font-style: normal;
+    src: url("../fonts/Spiegel-Bold.woff");
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    font-weight: 800;
+    font-style: italic;
+    src: url("../fonts/Spiegel-BoldItalic.woff");
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    font-weight: 900;
+    font-style: italic;
+    src: url("../fonts/Spiegel-BoldItalic.woff");
+}

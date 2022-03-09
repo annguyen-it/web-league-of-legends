@@ -1,0 +1,12 @@
+﻿@using LeagueOfLegends.Models.Components
+@model CanvasRect
+
+<div class="canvas-rect-wrapper w-100 h-100">
+  <canvas class="canvas-rect"
+          data-top-right="@(Model.border?.topRight ?? false)"
+          data-top-left="@(Model.border?.topLeft ?? false)"
+          data-bottom-right="@(Model.border?.bottomRight ?? false)"
+          data-bottom-left="@(Model.border?.bottomLeft ?? false)"
+          data-size="@Model.size">
+  </canvas>
+</div>
