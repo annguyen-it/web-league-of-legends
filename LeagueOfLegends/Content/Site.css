@@ -92,3 +92,11 @@ textarea {
     font-style: italic;
     src: url("../fonts/Spiegel-BoldItalic.woff");
 }
+
+.font-spiegel {
+    font-family: Spiegel, "Arial Narrow", Arial, sans-serif;
+}
+
+.canvas-wrapper {
+    position: absolute;
+}

@@ -1,4 +1,6 @@
-﻿@{
+﻿@using LeagueOfLegends.Models.Components
+
+@{
   ViewBag.Title = "Home Page";
 }
 
@@ -16,16 +18,26 @@
         </video>
       </div>
       <div class="section-0__foreground position-relative">
-        <div class="section-0__foreground__canvas-wrapper position-absolute">
-          @Html.Partial("~/Views/Components/CanvasRect.cshtml", ViewBag.Canvas1 as object)
+        <div class="section-0__foreground__canvas canvas-wrapper">
+          @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(32, new Vertex().WithTopRight()).Resizable())
         </div>
-        <div class="section-0__foreground__presenter-wrapper position-relative">
-          <video class="section-0__foreground__presenter-background w-100" preload="metadata" autoplay loop muted>
+        <div class="section-0__foreground__presenter-wrapper position-relative h-100">
+          <video class="section-0__foreground__presenter-background w-100 h-100" preload="metadata" autoplay loop muted>
             <source src="https://laptrinhkhongvui.com/resources/video/home-1.mp4" type="video/mp4" />
             <source src="https://laptrinhkhongvui.com/resources/video/home-1.webm" type="video/webm" />
           </video>
-          <div class="section-0__foreground__presenter-logo position-absolute start-50 top-50 translate-middle">
-            <img src="@Url.Content("~/images/logo/logo-full.png")" class="w-100 h-100" />
+          <div class="section-0__foreground__presenter-inner position-absolute start-50 top-50 translate-middle">
+            <div class="section-0__foreground__presenter-logo">
+              <img src="@Url.Content("~/images/logo/logo-full.png")" class="w-100 h-100" />
+            </div>
+            <div class="section-0__foreground__presenter-play d-flex justify-content-center">
+              <button class="position-relative border-0 font-spiegel text-uppercase fw-bold">
+                Play for free
+                <div class="section-0__foreground__presenter-play__canvas canvas-wrapper">
+                  @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().WithTopLeft().WithBottomRight()).Animate().WithColor("#DFDDE9"))
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </div>

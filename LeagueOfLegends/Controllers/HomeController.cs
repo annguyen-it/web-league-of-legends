@@ -11,7 +11,6 @@ namespace LeagueOfLegends.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Canvas1 = new CanvasRect();
             return View();
         }
 
