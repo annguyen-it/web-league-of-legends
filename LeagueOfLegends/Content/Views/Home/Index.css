@@ -1,0 +1,61 @@
+﻿main .section-0__wrapper {
+    padding: 3.75rem;
+}
+
+main .section-0__background {
+    object-fit: cover;
+}
+
+main .section-0__foreground {
+    height: 55vh;
+    min-height: 31.25rem;
+    z-index: 1;
+}
+
+main .section-0__foreground__canvas {
+    top: -12px;
+    bottom: -12px;
+    left: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
+main .section-0__foreground__presenter-background {
+    object-fit: cover;
+}
+
+main .section-0__foreground__presenter-inner {
+    z-index: 3
+}
+
+main .section-0__foreground__presenter-logo {
+    width: 40vw;
+    height: 17.63vw;
+}
+
+main .section-0__foreground__presenter-play button {
+    width: 195px;
+    height: 56px;
+    font-size: 14px;
+    background-color: #0BC6E3;
+    letter-spacing: 2px;
+    transition: background-color 200ms ease;
+}
+
+    main .section-0__foreground__presenter-play button:hover {
+        background-color: #13D8F6;
+    }
+
+main .section-0__foreground__presenter-play__canvas {
+    top: -4px;
+    bottom: -4px;
+    left: -5px;
+    right: -5px;
+}
+
+main .section-1__wrapper {
+    margin-top: -120px;
+    padding-top: 120px;
+    height: 300px;
+    background-color: #ffffff;
+}

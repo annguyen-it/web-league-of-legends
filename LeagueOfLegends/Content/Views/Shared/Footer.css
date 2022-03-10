@@ -1,0 +1,33 @@
+﻿button.btn-play-for-free {
+    width: 195px;
+    height: 56px;
+    font-size: 14px;
+    background-color: #0BC6E3;
+    letter-spacing: 2px;
+    transition: background-color 200ms ease;
+}
+
+    button.btn-play-for-free:hover {
+        background-color: #13D8F6;
+    }
+
+    button.btn-play-for-free > div {
+        position: absolute;
+        top: -4px;
+        bottom: -4px;
+        left: -5px;
+        right: -5px;
+    }
+
+footer .presenter__play button {
+    width: 195px;
+    height: 56px;
+    font-size: 14px;
+    background-color: #0BC6E3;
+    letter-spacing: 2px;
+    transition: background-color 200ms ease;
+}
+
+    footer .presenter__play button:hover {
+        background-color: #13D8F6;
+    }

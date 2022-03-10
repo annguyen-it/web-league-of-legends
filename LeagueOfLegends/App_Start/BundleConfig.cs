@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace LeagueOfLegends
 {
@@ -25,6 +24,10 @@ namespace LeagueOfLegends
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/shared").Include(
+                      "~/Content/Views/Shared/Footer.css",
+                      "~/Content/Views/Shared/NavBar.css"));
         }
     }
 }

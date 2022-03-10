@@ -1,4 +1,19 @@
-﻿<hr />
+﻿@using LeagueOfLegends.Models.Components
+
 <footer>
-  <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+  <div class="presenter position-relative">
+    <div class="presenter-wrapper">
+      <video class="presenter__background w-100" preload="metadata" autoplay loop muted>
+        <source src="https://laptrinhkhongvui.com/resources/video/home-footer.mp4" type=video/mp4 />
+      </video>
+    </div>
+    <div class="presenter__play position-absolute start-50 top-50 translate-middle">
+      <button class="btn-play-for-free position-relative border-0 font-spiegel text-uppercase fw-bold">
+        Play for free
+        <div>
+          @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().WithTopLeft().WithBottomRight()).Animate().WithColor("#DFDDE9"))
+        </div>
+      </button>
+    </div>
+  </div>
 </footer>

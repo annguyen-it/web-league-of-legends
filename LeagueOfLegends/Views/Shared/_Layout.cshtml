@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>League of Legends | @ViewBag.Title</title>
   <link href="@Url.Content("~/images/favicon/favicon.ico")" rel="shortcut icon" type="image/x-icon" />
+  <link href="@Url.Content("~/Content/Views/Home/.css")" rel="stylesheet" />
   @Styles.Render("~/Content/css")
   @Scripts.Render("~/bundles/modernizr")
+  @Styles.Render("~/Content/shared")
   @if (IsSectionDefined("AddToHeader"))
   {
     @RenderSection("AddToHeader", required: false);
