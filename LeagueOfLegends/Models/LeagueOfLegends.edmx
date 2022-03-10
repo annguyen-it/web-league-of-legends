@@ -1,0 +1,560 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LeagueOfLegendsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Champion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="key" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="blurb" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="lore" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="parType" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Champion_Tag">
+          <Key>
+            <PropertyRef Name="idChampion" />
+            <PropertyRef Name="idTag" />
+          </Key>
+          <Property Name="idChampion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="idTag" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChampionInfo">
+          <Key>
+            <PropertyRef Name="idChampion" />
+          </Key>
+          <Property Name="idChampion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="attack" Type="tinyint" Nullable="false" />
+          <Property Name="defense" Type="tinyint" Nullable="false" />
+          <Property Name="magic" Type="tinyint" Nullable="false" />
+          <Property Name="difficulty" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChampionStats">
+          <Key>
+            <PropertyRef Name="idChampion" />
+          </Key>
+          <Property Name="hp" Type="float" Nullable="false" />
+          <Property Name="hpPerLevel" Type="float" Nullable="false" />
+          <Property Name="mp" Type="float" Nullable="false" />
+          <Property Name="mpPerLevel" Type="float" Nullable="false" />
+          <Property Name="moveSpeed" Type="float" Nullable="false" />
+          <Property Name="armor" Type="float" Nullable="false" />
+          <Property Name="armorPerLevel" Type="float" Nullable="false" />
+          <Property Name="spellBlock" Type="float" Nullable="false" />
+          <Property Name="spellBlockPerLevel" Type="float" Nullable="false" />
+          <Property Name="attackRange" Type="float" Nullable="false" />
+          <Property Name="hpRegen" Type="float" Nullable="false" />
+          <Property Name="hpRegenPerLevel" Type="float" Nullable="false" />
+          <Property Name="mpRegen" Type="float" Nullable="false" />
+          <Property Name="mpRegenPerLevel" Type="float" Nullable="false" />
+          <Property Name="crit" Type="float" Nullable="false" />
+          <Property Name="critPerLevel" Type="float" Nullable="false" />
+          <Property Name="attackDamage" Type="float" Nullable="false" />
+          <Property Name="attackDamagePerLevel" Type="float" Nullable="false" />
+          <Property Name="attackSpeed" Type="float" Nullable="false" />
+          <Property Name="attackSpeedPerLevel" Type="float" Nullable="false" />
+          <Property Name="idChampion" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Passive">
+          <Key>
+            <PropertyRef Name="idChampion" />
+          </Key>
+          <Property Name="idChampion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="800" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spell">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="800" Nullable="false" />
+          <Property Name="maxRank" Type="tinyint" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idChampion" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LeagueOfLegends.dbo.Tip' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Tip">
+          <Key>
+            <PropertyRef Name="idChampion" />
+            <PropertyRef Name="tip" />
+            <PropertyRef Name="forAlly" />
+          </Key>
+          <Property Name="idChampion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="tip" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="forAlly" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="Champion_Tag_Champion_id_fk">
+          <End Role="Champion" Type="Self.Champion" Multiplicity="1" />
+          <End Role="Champion_Tag" Type="Self.Champion_Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Champion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Champion_Tag">
+              <PropertyRef Name="idChampion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Champion_Tag_Tag_id_fk">
+          <End Role="Tag" Type="Self.Tag" Multiplicity="1" />
+          <End Role="Champion_Tag" Type="Self.Champion_Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Champion_Tag">
+              <PropertyRef Name="idTag" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ChampionInfo_Champion_id_fk">
+          <End Role="Champion" Type="Self.Champion" Multiplicity="1" />
+          <End Role="ChampionInfo" Type="Self.ChampionInfo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Champion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ChampionInfo">
+              <PropertyRef Name="idChampion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ChampionStats_Champion_id_fk">
+          <End Role="Champion" Type="Self.Champion" Multiplicity="1" />
+          <End Role="ChampionStats" Type="Self.ChampionStats" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Champion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ChampionStats">
+              <PropertyRef Name="idChampion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Passive_Champion_id_fk">
+          <End Role="Champion" Type="Self.Champion" Multiplicity="1" />
+          <End Role="Passive" Type="Self.Passive" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Champion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Passive">
+              <PropertyRef Name="idChampion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Spell_Champion_id_fk">
+          <End Role="Champion" Type="Self.Champion" Multiplicity="0..1" />
+          <End Role="Spell" Type="Self.Spell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Champion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Spell">
+              <PropertyRef Name="idChampion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Tip_Champion_id_fk">
+          <End Role="Champion" Type="Self.Champion" Multiplicity="1" />
+          <End Role="Tip" Type="Self.Tip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Champion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tip">
+              <PropertyRef Name="idChampion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LeagueOfLegendsModelStoreContainer">
+          <EntitySet Name="Champion" EntityType="Self.Champion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Champion_Tag" EntityType="Self.Champion_Tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChampionInfo" EntityType="Self.ChampionInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChampionStats" EntityType="Self.ChampionStats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Passive" EntityType="Self.Passive" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spell" EntityType="Self.Spell" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tip" EntityType="Self.Tip" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Tip].[idChampion] AS [idChampion], 
+    [Tip].[tip] AS [tip], 
+    [Tip].[forAlly] AS [forAlly]
+    FROM [dbo].[Tip] AS [Tip]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="Champion_Tag_Champion_id_fk" Association="Self.Champion_Tag_Champion_id_fk">
+            <End Role="Champion" EntitySet="Champion" />
+            <End Role="Champion_Tag" EntitySet="Champion_Tag" />
+          </AssociationSet>
+          <AssociationSet Name="Champion_Tag_Tag_id_fk" Association="Self.Champion_Tag_Tag_id_fk">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="Champion_Tag" EntitySet="Champion_Tag" />
+          </AssociationSet>
+          <AssociationSet Name="ChampionInfo_Champion_id_fk" Association="Self.ChampionInfo_Champion_id_fk">
+            <End Role="Champion" EntitySet="Champion" />
+            <End Role="ChampionInfo" EntitySet="ChampionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="ChampionStats_Champion_id_fk" Association="Self.ChampionStats_Champion_id_fk">
+            <End Role="Champion" EntitySet="Champion" />
+            <End Role="ChampionStats" EntitySet="ChampionStats" />
+          </AssociationSet>
+          <AssociationSet Name="Passive_Champion_id_fk" Association="Self.Passive_Champion_id_fk">
+            <End Role="Champion" EntitySet="Champion" />
+            <End Role="Passive" EntitySet="Passive" />
+          </AssociationSet>
+          <AssociationSet Name="Spell_Champion_id_fk" Association="Self.Spell_Champion_id_fk">
+            <End Role="Champion" EntitySet="Champion" />
+            <End Role="Spell" EntitySet="Spell" />
+          </AssociationSet>
+          <AssociationSet Name="Tip_Champion_id_fk" Association="Self.Tip_Champion_id_fk">
+            <End Role="Champion" EntitySet="Champion" />
+            <End Role="Tip" EntitySet="Tip" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LeagueOfLegendsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Champion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="key" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="blurb" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lore" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="parType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ChampionInfo" Relationship="Self.ChampionInfo_Champion_id_fk" FromRole="Champion" ToRole="ChampionInfo" />
+          <NavigationProperty Name="ChampionStat" Relationship="Self.ChampionStats_Champion_id_fk" FromRole="Champion" ToRole="ChampionStats" />
+          <NavigationProperty Name="Passive" Relationship="Self.Passive_Champion_id_fk" FromRole="Champion" ToRole="Passive" />
+          <NavigationProperty Name="Spells" Relationship="Self.Spell_Champion_id_fk" FromRole="Champion" ToRole="Spell" />
+          <NavigationProperty Name="Tips" Relationship="Self.Tip_Champion_id_fk" FromRole="Champion" ToRole="Tip" />
+          <NavigationProperty Name="Tags" Relationship="Self.Champion_Tag" FromRole="Champion" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="ChampionInfo">
+          <Key>
+            <PropertyRef Name="idChampion" />
+          </Key>
+          <Property Name="idChampion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="attack" Type="Byte" Nullable="false" />
+          <Property Name="defense" Type="Byte" Nullable="false" />
+          <Property Name="magic" Type="Byte" Nullable="false" />
+          <Property Name="difficulty" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Champion" Relationship="Self.ChampionInfo_Champion_id_fk" FromRole="ChampionInfo" ToRole="Champion" />
+        </EntityType>
+        <EntityType Name="ChampionStat">
+          <Key>
+            <PropertyRef Name="idChampion" />
+          </Key>
+          <Property Name="hp" Type="Double" Nullable="false" />
+          <Property Name="hpPerLevel" Type="Double" Nullable="false" />
+          <Property Name="mp" Type="Double" Nullable="false" />
+          <Property Name="mpPerLevel" Type="Double" Nullable="false" />
+          <Property Name="moveSpeed" Type="Double" Nullable="false" />
+          <Property Name="armor" Type="Double" Nullable="false" />
+          <Property Name="armorPerLevel" Type="Double" Nullable="false" />
+          <Property Name="spellBlock" Type="Double" Nullable="false" />
+          <Property Name="spellBlockPerLevel" Type="Double" Nullable="false" />
+          <Property Name="attackRange" Type="Double" Nullable="false" />
+          <Property Name="hpRegen" Type="Double" Nullable="false" />
+          <Property Name="hpRegenPerLevel" Type="Double" Nullable="false" />
+          <Property Name="mpRegen" Type="Double" Nullable="false" />
+          <Property Name="mpRegenPerLevel" Type="Double" Nullable="false" />
+          <Property Name="crit" Type="Double" Nullable="false" />
+          <Property Name="critPerLevel" Type="Double" Nullable="false" />
+          <Property Name="attackDamage" Type="Double" Nullable="false" />
+          <Property Name="attackDamagePerLevel" Type="Double" Nullable="false" />
+          <Property Name="attackSpeed" Type="Double" Nullable="false" />
+          <Property Name="attackSpeedPerLevel" Type="Double" Nullable="false" />
+          <Property Name="idChampion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Champion" Relationship="Self.ChampionStats_Champion_id_fk" FromRole="ChampionStats" ToRole="Champion" />
+        </EntityType>
+        <EntityType Name="Passive">
+          <Key>
+            <PropertyRef Name="idChampion" />
+          </Key>
+          <Property Name="idChampion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="800" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Champion" Relationship="Self.Passive_Champion_id_fk" FromRole="Passive" ToRole="Champion" />
+        </EntityType>
+        <EntityType Name="Spell">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="800" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="maxRank" Type="Byte" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idChampion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Champion" Relationship="Self.Spell_Champion_id_fk" FromRole="Spell" ToRole="Champion" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Champions" Relationship="Self.Champion_Tag" FromRole="Tag" ToRole="Champion" />
+        </EntityType>
+        <EntityType Name="Tip">
+          <Key>
+            <PropertyRef Name="idChampion" />
+            <PropertyRef Name="tip1" />
+            <PropertyRef Name="forAlly" />
+          </Key>
+          <Property Name="idChampion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tip1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="forAlly" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Champion" Relationship="Self.Tip_Champion_id_fk" FromRole="Tip" ToRole="Champion" />
+        </EntityType>
+        <Association Name="ChampionInfo_Champion_id_fk">
+          <End Role="Champion" Type="Self.Champion" Multiplicity="1" />
+          <End Role="ChampionInfo" Type="Self.ChampionInfo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Champion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ChampionInfo">
+              <PropertyRef Name="idChampion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ChampionStats_Champion_id_fk">
+          <End Role="Champion" Type="Self.Champion" Multiplicity="1" />
+          <End Role="ChampionStats" Type="Self.ChampionStat" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Champion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ChampionStats">
+              <PropertyRef Name="idChampion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Passive_Champion_id_fk">
+          <End Role="Champion" Type="Self.Champion" Multiplicity="1" />
+          <End Role="Passive" Type="Self.Passive" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Champion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Passive">
+              <PropertyRef Name="idChampion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Spell_Champion_id_fk">
+          <End Role="Champion" Type="Self.Champion" Multiplicity="0..1" />
+          <End Role="Spell" Type="Self.Spell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Champion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Spell">
+              <PropertyRef Name="idChampion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Tip_Champion_id_fk">
+          <End Role="Champion" Type="Self.Champion" Multiplicity="1" />
+          <End Role="Tip" Type="Self.Tip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Champion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tip">
+              <PropertyRef Name="idChampion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Champion_Tag">
+          <End Role="Champion" Type="Self.Champion" Multiplicity="*" />
+          <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="LeagueOfLegendsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Champions" EntityType="Self.Champion" />
+          <EntitySet Name="ChampionInfoes" EntityType="Self.ChampionInfo" />
+          <EntitySet Name="ChampionStats" EntityType="Self.ChampionStat" />
+          <EntitySet Name="Passives" EntityType="Self.Passive" />
+          <EntitySet Name="Spells" EntityType="Self.Spell" />
+          <EntitySet Name="Tags" EntityType="Self.Tag" />
+          <EntitySet Name="Tips" EntityType="Self.Tip" />
+          <AssociationSet Name="ChampionInfo_Champion_id_fk" Association="Self.ChampionInfo_Champion_id_fk">
+            <End Role="Champion" EntitySet="Champions" />
+            <End Role="ChampionInfo" EntitySet="ChampionInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="ChampionStats_Champion_id_fk" Association="Self.ChampionStats_Champion_id_fk">
+            <End Role="Champion" EntitySet="Champions" />
+            <End Role="ChampionStats" EntitySet="ChampionStats" />
+          </AssociationSet>
+          <AssociationSet Name="Passive_Champion_id_fk" Association="Self.Passive_Champion_id_fk">
+            <End Role="Champion" EntitySet="Champions" />
+            <End Role="Passive" EntitySet="Passives" />
+          </AssociationSet>
+          <AssociationSet Name="Spell_Champion_id_fk" Association="Self.Spell_Champion_id_fk">
+            <End Role="Champion" EntitySet="Champions" />
+            <End Role="Spell" EntitySet="Spells" />
+          </AssociationSet>
+          <AssociationSet Name="Tip_Champion_id_fk" Association="Self.Tip_Champion_id_fk">
+            <End Role="Champion" EntitySet="Champions" />
+            <End Role="Tip" EntitySet="Tips" />
+          </AssociationSet>
+          <AssociationSet Name="Champion_Tag" Association="Self.Champion_Tag">
+            <End Role="Champion" EntitySet="Champions" />
+            <End Role="Tag" EntitySet="Tags" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LeagueOfLegendsModelStoreContainer" CdmEntityContainer="LeagueOfLegendsEntities">
+          <EntitySetMapping Name="Champions">
+            <EntityTypeMapping TypeName="LeagueOfLegendsModel.Champion">
+              <MappingFragment StoreEntitySet="Champion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="key" ColumnName="key" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="blurb" ColumnName="blurb" />
+                <ScalarProperty Name="lore" ColumnName="lore" />
+                <ScalarProperty Name="parType" ColumnName="parType" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChampionInfoes">
+            <EntityTypeMapping TypeName="LeagueOfLegendsModel.ChampionInfo">
+              <MappingFragment StoreEntitySet="ChampionInfo">
+                <ScalarProperty Name="idChampion" ColumnName="idChampion" />
+                <ScalarProperty Name="attack" ColumnName="attack" />
+                <ScalarProperty Name="defense" ColumnName="defense" />
+                <ScalarProperty Name="magic" ColumnName="magic" />
+                <ScalarProperty Name="difficulty" ColumnName="difficulty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChampionStats">
+            <EntityTypeMapping TypeName="LeagueOfLegendsModel.ChampionStat">
+              <MappingFragment StoreEntitySet="ChampionStats">
+                <ScalarProperty Name="hp" ColumnName="hp" />
+                <ScalarProperty Name="hpPerLevel" ColumnName="hpPerLevel" />
+                <ScalarProperty Name="mp" ColumnName="mp" />
+                <ScalarProperty Name="mpPerLevel" ColumnName="mpPerLevel" />
+                <ScalarProperty Name="moveSpeed" ColumnName="moveSpeed" />
+                <ScalarProperty Name="armor" ColumnName="armor" />
+                <ScalarProperty Name="armorPerLevel" ColumnName="armorPerLevel" />
+                <ScalarProperty Name="spellBlock" ColumnName="spellBlock" />
+                <ScalarProperty Name="spellBlockPerLevel" ColumnName="spellBlockPerLevel" />
+                <ScalarProperty Name="attackRange" ColumnName="attackRange" />
+                <ScalarProperty Name="hpRegen" ColumnName="hpRegen" />
+                <ScalarProperty Name="hpRegenPerLevel" ColumnName="hpRegenPerLevel" />
+                <ScalarProperty Name="mpRegen" ColumnName="mpRegen" />
+                <ScalarProperty Name="mpRegenPerLevel" ColumnName="mpRegenPerLevel" />
+                <ScalarProperty Name="crit" ColumnName="crit" />
+                <ScalarProperty Name="critPerLevel" ColumnName="critPerLevel" />
+                <ScalarProperty Name="attackDamage" ColumnName="attackDamage" />
+                <ScalarProperty Name="attackDamagePerLevel" ColumnName="attackDamagePerLevel" />
+                <ScalarProperty Name="attackSpeed" ColumnName="attackSpeed" />
+                <ScalarProperty Name="attackSpeedPerLevel" ColumnName="attackSpeedPerLevel" />
+                <ScalarProperty Name="idChampion" ColumnName="idChampion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Passives">
+            <EntityTypeMapping TypeName="LeagueOfLegendsModel.Passive">
+              <MappingFragment StoreEntitySet="Passive">
+                <ScalarProperty Name="idChampion" ColumnName="idChampion" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spells">
+            <EntityTypeMapping TypeName="LeagueOfLegendsModel.Spell">
+              <MappingFragment StoreEntitySet="Spell">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="maxRank" ColumnName="maxRank" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="idChampion" ColumnName="idChampion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="LeagueOfLegendsModel.Tag">
+              <MappingFragment StoreEntitySet="Tag">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tips">
+            <EntityTypeMapping TypeName="LeagueOfLegendsModel.Tip">
+              <MappingFragment StoreEntitySet="Tip">
+                <ScalarProperty Name="idChampion" ColumnName="idChampion" />
+                <ScalarProperty Name="tip1" ColumnName="tip" />
+                <ScalarProperty Name="forAlly" ColumnName="forAlly" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Champion_Tag" TypeName="LeagueOfLegendsModel.Champion_Tag" StoreEntitySet="Champion_Tag">
+            <EndProperty Name="Champion">
+              <ScalarProperty Name="id" ColumnName="idChampion" />
+            </EndProperty>
+            <EndProperty Name="Tag">
+              <ScalarProperty Name="id" ColumnName="idTag" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

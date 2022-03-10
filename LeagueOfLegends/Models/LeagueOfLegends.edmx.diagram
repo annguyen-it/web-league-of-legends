@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="08a07e4622644a299986f8b657946eb4" Name="Diagram1">
+        <EntityTypeShape EntityType="LeagueOfLegendsModel.Champion" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeagueOfLegendsModel.ChampionInfo" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeagueOfLegendsModel.ChampionStat" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeagueOfLegendsModel.Passive" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeagueOfLegendsModel.Spell" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeagueOfLegendsModel.Tag" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeagueOfLegendsModel.Tip" Width="1.5" PointX="3" PointY="18.875" IsExpanded="true" />
+        <AssociationConnector Association="LeagueOfLegendsModel.ChampionInfo_Champion_id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="LeagueOfLegendsModel.ChampionStats_Champion_id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="LeagueOfLegendsModel.Passive_Champion_id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="LeagueOfLegendsModel.Spell_Champion_id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="LeagueOfLegendsModel.Tip_Champion_id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="LeagueOfLegendsModel.Champion_Tag" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

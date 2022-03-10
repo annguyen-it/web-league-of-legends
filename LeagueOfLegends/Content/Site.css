@@ -93,8 +93,37 @@ textarea {
     src: url("../fonts/Spiegel-BoldItalic.woff");
 }
 
+@font-face {
+    font-family: "Beaufort for LOL";
+    font-weight: normal;
+    font-style: normal;
+    src: url("../fonts/BeaufortforLOL-Regular.woff");
+}
+
+@font-face {
+    font-family: "Beaufort for LOL";
+    font-weight: bolder;
+    font-style: italic;
+    src: url("../fonts/BeaufortforLOL-HeavyItalic.woff");
+}
+
+@font-face {
+    font-family: "Beaufort for LOL";
+    font-weight: bold;
+    font-style: normal;
+    src: url("../fonts/BeaufortforLOL-Bold.woff");
+}
+
+body {
+    font-size: 14px;
+}
+
 .font-spiegel {
     font-family: Spiegel, "Arial Narrow", Arial, sans-serif;
+}
+
+.font-beaufort {
+    font-family: "Beaufort for LOL", serif
 }
 
 .canvas-wrapper {

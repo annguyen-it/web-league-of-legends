@@ -1,8 +1,36 @@
 ﻿
 @{
-    ViewBag.Title = "Champions";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Champions";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Champions</h2>
+@section AddToHeader {
+  <style>
+    header {
+      margin-top: 2rem;
+    }
+
+    header .line-2 {
+      font-size: calc(61.82px + 3.03vw);
+      line-height: 0.85;
+    }
+
+      header .line-3 {
+        max-width: 680px;
+        padding: 0 10%;
+        line-height: 1.6;
+        letter-spacing: 1.12px;
+      }
+  </style>
+}
+
+<header class="text-center font-spiegel">
+  <div class="line-1 fw-bold fst-italic text-uppercase fs-5">Choose your</div>
+  <div class="line-2 font-beaufort fw-bolder fst-italic text-uppercase">Champion</div>
+  <p class="line-3 mt-2 mx-auto">With more than 140 champions, you’ll find the perfect match for your playstyle. Master one, or master them all.</p>
+</header>
+
+<main>
+  @Html.Action("ChampionsList")
+</main>
 
