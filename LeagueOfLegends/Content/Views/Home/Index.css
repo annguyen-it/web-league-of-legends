@@ -173,3 +173,32 @@ main .section-1 article .canvas-wrapper {
     left: 10px;
     right: 0;
 }
+
+main .section-2 {
+    max-width: 1800px;
+    padding: 0 60px;
+    margin: 4% auto;
+}
+
+main .section-2__background {
+    overflow: hidden;
+}
+
+    main .section-2 img {
+        transform: scale3d(1.05, 1.05, 1);
+        -moz-transition: transform 0.25s ease-in-out;
+        -o-transition: transform 0.25s ease-in-out;
+        -webkit-transition: transform 0.25s ease-in-out;
+        transition: transform 0.25s ease-in-out;
+    }
+
+    main .section-2 a:hover img {
+        transform: none;
+    }
+
+main .section-2__canvas {
+    top: 10px;
+    bottom: 10px;
+    left: -10px;
+    right: -10px;
+}

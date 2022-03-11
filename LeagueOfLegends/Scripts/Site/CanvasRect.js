@@ -94,12 +94,12 @@ $(document).ready(function () {
                 $(canvas).attr('data-animate-in', true);
                 clearInterval(animateInInterval[animateId]);
                 clearInterval(animateOutInterval[animateId]);
-                animateInInterval[animateId] = setInterval(animateIn, 2, canvas);
+                animateInInterval[animateId] = setInterval(animateIn, 1, canvas);
             }, function () {
                 $(canvas).attr('data-animate-in', false);
                 clearInterval(animateInInterval[animateId]);
                 clearInterval(animateOutInterval[animateId]);
-                animateOutInterval[animateId] = setInterval(animateOut, 2, canvas);
+                animateOutInterval[animateId] = setInterval(animateOut, 1, canvas);
             });
         }
     })

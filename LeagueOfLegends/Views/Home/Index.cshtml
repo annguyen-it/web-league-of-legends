@@ -35,8 +35,8 @@
                 Play for free
                 <div>
                   @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().WithTopLeft().WithBottomRight())
-               .Animate("section-0_play-btn")
-               .WithColor("#DFDDE9"))
+                   .Animate("section-0_play-btn")
+                   .WithColor("#DFDDE9"))
                 </div>
               </button>
             </div>
@@ -64,6 +64,20 @@
           </a>
         </div>
       </div>
+    </div>
+  </section>
+  <section class="section-2">
+    <div class="section-2__wrapper position-relative">
+      <a href="https://playruneterra.com/en-us/">
+        <div class="section-2__background w-100">
+          <img class="w-100" src="@Url.Content("~/images/assets/legends-of-runeterra.jpg")" alt="Alternate Text" />
+        </div>
+        <div class="section-2__canvas position-absolute">
+          @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(35, new Vertex().WithTopRight(), 3)
+           .Animate("section-0_play-btn")
+           .WithColor("#D5D5D5"))
+        </div>
+      </a>
     </div>
   </section>
 </main>

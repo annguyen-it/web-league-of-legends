@@ -227,6 +227,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\assets\home-bg.png" />
+    <Content Include="images\assets\legends-of-runeterra.jpg" />
     <Content Include="images\favicon\favicon.ico" />
     <Content Include="fonts\BeaufortforLOL-Bold.woff" />
     <Content Include="fonts\BeaufortforLOL-HeavyItalic.woff" />
