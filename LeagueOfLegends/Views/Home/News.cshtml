@@ -2,8 +2,8 @@
 
 <div class="news row">
   <div class="col">
-    <article class="position-relative">
-      <a class="position-relative d-flex align-items-center text-decoration-none" href="#">
+    <article>
+      <a class="d-flex align-items-center text-decoration-none" href="#">
         <div class="media flex-grow-1 flex-shrink-0 overflow-hidden">
           <img class="w-100 h-100" src="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt8979808f7798ecf5/6216ee875fe07272a8a2447a/2021_Key_art.jpg?quality=90&amp;crop=1%3A1&amp;width=360">
         </div>
@@ -12,17 +12,16 @@
           <div class="headline text-gray-900">Patch 12.5 notes</div>
           <p class="blurb text-truncate">It's patch 12.5, beelieve it!</p>
         </div>
-        <div class="canvas-wrapper">
-          @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().WithTopRight())
-       .Resizable()
-       .Animate("section-1_news-0"))
-        </div>
+        @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().TopRight())
+         .Resizable()
+         .Animate("section-1_news-0")
+         .Position(new Position(-10, 0, -10, 10)))
       </a>
     </article>
   </div>
   <div class="col">
-    <article class="position-relative">
-      <a class="position-relative d-flex align-items-center text-decoration-none" href="#">
+    <article>
+      <a class="d-flex align-items-center text-decoration-none" href="#">
         <div class="media flex-grow-1 flex-shrink-0 overflow-hidden">
           <img class="w-100 h-100" src="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt8979808f7798ecf5/6216ee875fe07272a8a2447a/2021_Key_art.jpg?quality=90&amp;crop=1%3A1&amp;width=360">
         </div>
@@ -31,17 +30,16 @@
           <div class="headline text-gray-900">Patch 12.5 notes</div>
           <p class="blurb text-truncate">It's patch 12.5, beelieve it!</p>
         </div>
-        <div class="canvas-wrapper">
-          @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().WithTopRight())
-          .Resizable()
-          .Animate("section-1_news-1"))
-        </div>
+        @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().TopRight())
+        .Resizable()
+        .Animate("section-1_news-1")
+        .Position(new Position(-10, 0, -10, 10)))
       </a>
     </article>
   </div>
   <div class="col">
-    <article class="position-relative">
-      <a class="position-relative d-flex align-items-center text-decoration-none" href="#">
+    <article>
+      <a class="d-flex align-items-center text-decoration-none" href="#">
         <div class="media flex-grow-1 flex-shrink-0 overflow-hidden">
           <img class="w-100 h-100" src="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt8979808f7798ecf5/6216ee875fe07272a8a2447a/2021_Key_art.jpg?quality=90&amp;crop=1%3A1&amp;width=360">
         </div>
@@ -50,11 +48,10 @@
           <div class="headline text-gray-900">Patch 12.5 notes</div>
           <p class="blurb text-truncate">It's patch 12.5, beelieve it!</p>
         </div>
-        <div class="canvas-wrapper">
-          @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().WithTopRight())
-          .Resizable()
-          .Animate("section-1_news-2"))
-        </div>
+        @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().TopRight())
+        .Resizable()
+        .Animate("section-1_news-2")
+        .Position(new Position(-10, 0, -10, 10)))
       </a>
     </article>
   </div>

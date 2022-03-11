@@ -11,14 +11,6 @@
         background-color: #13D8F6;
     }
 
-    button.btn-play-for-free > div {
-        position: absolute;
-        top: -4px;
-        bottom: -4px;
-        left: -5px;
-        right: -5px;
-    }
-
 footer .presenter__play button {
     width: 195px;
     height: 56px;

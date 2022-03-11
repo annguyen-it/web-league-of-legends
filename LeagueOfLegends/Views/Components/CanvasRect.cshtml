@@ -1,7 +1,8 @@
 ﻿@using LeagueOfLegends.Models.Components
 @model CanvasRect
 
-<div class="canvas-rect-wrapper position-absolute top-0 bottom-0 start-0 end-0">
+<div class="canvas-rect-wrapper position-absolute" 
+     style="top: @(Model.position.top)px; right: @(Model.position.right)px; bottom: @(Model.position.bottom)px; left: @(Model.position.left)px;">
   <canvas class="canvas-rect"
           data-top-right="@(Model.border.topRight)"
           data-top-left="@(Model.border.topLeft)"

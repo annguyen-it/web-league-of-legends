@@ -12,14 +12,6 @@ main .section-0__foreground {
     z-index: 1;
 }
 
-main .section-0__foreground__canvas {
-    top: -12px;
-    bottom: -12px;
-    left: 10px;
-    right: 10px;
-    z-index: 2;
-}
-
 main .section-0__foreground__presenter-background {
     object-fit: cover;
 }
@@ -45,13 +37,6 @@ main .section-0__foreground__presenter-play button {
     main .section-0__foreground__presenter-play button:hover {
         background-color: #13D8F6;
     }
-
-main .section-0__foreground__presenter-play__canvas {
-    top: -4px;
-    bottom: -4px;
-    left: -5px;
-    right: -5px;
-}
 
 main .section-1__wrapper {
     margin-top: -120px;
@@ -167,13 +152,6 @@ main .section-1 article .body {
         letter-spacing: 0.05em;
     }
 
-main .section-1 article .canvas-wrapper {
-    top: -10px;
-    bottom: -10px;
-    left: 10px;
-    right: 0;
-}
-
 main .section-2 {
     max-width: 1800px;
     padding: 0 60px;
@@ -195,10 +173,3 @@ main .section-2__background {
     main .section-2 a:hover img {
         transform: none;
     }
-
-main .section-2__canvas {
-    top: 10px;
-    bottom: 10px;
-    left: -10px;
-    right: -10px;
-}
