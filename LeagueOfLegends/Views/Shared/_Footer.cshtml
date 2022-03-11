@@ -8,13 +8,12 @@
       </video>
     </div>
     <div class="presenter__play position-absolute start-50 top-50 translate-middle">
-      <button class="btn-play-for-free position-relative border-0 font-spiegel text-uppercase fw-bold">
+      <button class="btn-play-for-free border-0 font-spiegel text-uppercase fw-bold">
         Play for free
-        <div>
-          @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().WithTopLeft().WithBottomRight())
-           .Animate("footer_play-btn")
-           .WithColor("#DFDDE9"))
-        </div>
+        @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().TopLeft().BottomRight())
+         .Animate("footer_play-btn")
+         .Color("#DFDDE9")
+         .Position(new Position(-5, -4)))
       </button>
     </div>
   </div>

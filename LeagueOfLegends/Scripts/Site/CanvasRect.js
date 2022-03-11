@@ -80,6 +80,7 @@ function animateOut(canvas) {
 
 $(document).ready(function () {
     $(".canvas-rect-wrapper").each(function () {
+        $(this).parent().addClass('position-relative');
         const canvas = $(this).find('canvas')[0];
         draw(canvas);
         if ($(canvas).attr('data-resizable') == 'True') {
