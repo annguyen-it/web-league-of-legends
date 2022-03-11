@@ -55,7 +55,121 @@ main .section-0__foreground__presenter-play__canvas {
 
 main .section-1__wrapper {
     margin-top: -120px;
-    padding-top: 120px;
-    height: 300px;
-    background-color: #ffffff;
+    padding: 120px 0 40px;
+    background: url(../../../images/assets/home-bg.png) left top repeat-x #F7F7F7;
+}
+
+main .section-1__title {
+    width: 60px;
+    flex: 0 0 auto;
+}
+
+main .section-1__title-wrapper {
+    width: 130px;
+    color: #1C1D2A;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    transform: rotate(-90deg) translate(-75%, 125%);
+    transform-origin: top left;
+    -webkit-font-smoothing: antialiased;
+}
+
+    main .section-1__title-wrapper span {
+        display: block;
+        width: 15px;
+        height: 1.5px;
+        background-color: #1C1D2A;
+    }
+
+main .section-1__content {
+    flex-grow: 1;
+    padding-right: 60px;
+}
+
+main .section-1__content__view-all__link {
+    margin-top: 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+}
+
+    main .section-1__content__view-all__link * {
+        margin-left: 5px;
+        color: #0BC6E3;
+        transition: transform 0.2s ease;
+    }
+
+    main .section-1__content__view-all__link:hover * {
+        transform: translateX(7px);
+    }
+
+main .section-1 .news {
+    overflow-x: auto;
+}
+
+main .section-1 article {
+    margin: 0 25px;
+    padding: 10px;
+    max-width: 420px;
+}
+
+main .section-1 .news .col:first-child article {
+    margin-left: 0;
+}
+
+main .section-1 .news .col:last-child article {
+    margin-right: 0;
+}
+
+main .section-1 .news .col article a:hover img {
+    transform: scale3d(1, 1, 1);
+}
+
+main .section-1 article .media {
+    height: 120px;
+    flex-basis: 120px;
+}
+
+    main .section-1 article .media img {
+        object-fit: cover;
+        transform: scale3d(1.035, 1.035, 1.035);
+        transition: transform 0.3s ease;
+    }
+
+main .section-1 article .body {
+    padding: 0 10%;
+    flex-basis: auto;
+}
+
+    main .section-1 article .body .category {
+        color: #BCBCBC;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+    }
+
+    main .section-1 article .body .headline,
+    main .section-1 article .body .blurb {
+        color: #1A1B21;
+    }
+
+    main .section-1 article .body .headline {
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.54px;
+    }
+
+    main .section-1 article .body .blurb {
+        margin-top: 8px;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+    }
+
+main .section-1 article .canvas-wrapper {
+    top: -10px;
+    bottom: -10px;
+    left: 10px;
+    right: 0;
 }

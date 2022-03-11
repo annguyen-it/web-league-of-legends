@@ -34,7 +34,9 @@
               <button class="btn-play-for-free position-relative border-0 font-spiegel text-uppercase fw-bold">
                 Play for free
                 <div>
-                  @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().WithTopLeft().WithBottomRight()).Animate().WithColor("#DFDDE9"))
+                  @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().WithTopLeft().WithBottomRight())
+               .Animate("section-0_play-btn")
+               .WithColor("#DFDDE9"))
                 </div>
               </button>
             </div>
@@ -44,8 +46,24 @@
     </div>
   </section>
   <section class="section-1">
-    <div class="section-1__wrapper position-relative">
-
+    <div class="section-1__wrapper position-relative d-flex">
+      <div class="section-1__title">
+        <div class="section-1__title-wrapper d-flex align-items-center text-uppercase">
+          Featured news
+          <span class="ms-2"></span>
+        </div>
+      </div>
+      <div class="section-1__content d-flex flex-column">
+        <div class="section-1__content-wrapper">
+          @Html.Partial("News")
+        </div>
+        <div class="section-1__content__view-all d-flex justify-content-end text-uppercase">
+          <a class="section-1__content__view-all__link text-black text-decoration-none" href="https://www.leagueoflegends.com/en-gb/news/">
+            View all
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 </main>

@@ -24,7 +24,7 @@
         public int size;
         public int width;
         public bool resizable;
-        public bool animate;
+        public string animateId;
         public string color;
 
         public CanvasRect(int size = 0, Vertex border = null, int width = 2)
@@ -33,7 +33,7 @@
             this.border = border;
             this.width = width;
             resizable = false;
-            animate = false;
+            animateId = "";
             color = "#ABABAB";
         }
 
@@ -43,9 +43,9 @@
             return this;
         }
 
-        public CanvasRect Animate()
+        public CanvasRect Animate(string id)
         {
-            animate = true;
+            animateId = id;
             return this;
         }
 

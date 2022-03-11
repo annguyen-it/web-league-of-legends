@@ -11,7 +11,9 @@
       <button class="btn-play-for-free position-relative border-0 font-spiegel text-uppercase fw-bold">
         Play for free
         <div>
-          @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().WithTopLeft().WithBottomRight()).Animate().WithColor("#DFDDE9"))
+          @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().WithTopLeft().WithBottomRight())
+           .Animate("footer_play-btn")
+           .WithColor("#DFDDE9"))
         </div>
       </button>
     </div>

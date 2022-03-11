@@ -36,7 +36,7 @@ textarea {
     font-family: 'Spiegel';
     font-weight: 700;
     font-style: normal;
-    src: url("../fonts/Spiegel-SemiBold.woff");
+    src: url("../fonts/Spiegel-Bold.woff");
 }
 
 @font-face {
@@ -104,6 +104,7 @@ textarea {
 
 body {
     font-size: 14px;
+    font-family: Spiegel, "Arial Narrow", Arial, sans-serif;
 }
 
 .font-spiegel {

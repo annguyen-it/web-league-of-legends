@@ -1,4 +1,4 @@
-﻿let animateInInterval, animateOutInterval;
+﻿let animateInInterval = animateOutInterval = extraVertexInInterval = extraVertexOutInterval = [];
 
 function handleResize(canvas) {
     $(canvas).attr('width', $(canvas).parent().width());
@@ -59,10 +59,9 @@ function draw(canvas) {
 }
 
 function animateIn(canvas) {
-    console.log(canvas);
     const currentSize = $(canvas).attr('data-current-size');
     if (currentSize == 0) {
-        clearInterval(animateInInterval);
+        clearInterval(animateInInterval[$(canvas).attr('data-animate-id')]);
         return;
     }
     $(canvas).attr('data-current-size', parseInt(currentSize) - 1);
@@ -72,7 +71,7 @@ function animateIn(canvas) {
 function animateOut(canvas) {
     const currentSize = $(canvas).attr('data-current-size');
     if (currentSize == $(canvas).attr('data-size')) {
-        clearInterval(animateOutInterval);
+        clearInterval(animateOutInterval[$(canvas).attr('data-animate-id')]);
         return;
     }
     $(canvas).attr('data-current-size', parseInt(currentSize) + 1);
@@ -88,18 +87,19 @@ $(document).ready(function () {
                 draw(canvas);
             })
         }
-        if ($(canvas).attr('data-animate') == 'True') {
+        const animateId = $(canvas).attr('data-animate-id');
+        if (animateId != '') {
             $(canvas).attr('data-animate-in', false);
             $(this).hover(function () {
                 $(canvas).attr('data-animate-in', true);
-                clearInterval(animateOutInterval);
-                clearInterval(animateInInterval);
-                animateInInterval = setInterval(animateIn, 2, canvas);
+                clearInterval(animateInInterval[animateId]);
+                clearInterval(animateOutInterval[animateId]);
+                animateInInterval[animateId] = setInterval(animateIn, 2, canvas);
             }, function () {
                 $(canvas).attr('data-animate-in', false);
-                clearInterval(animateInInterval);
-                clearInterval(animateOutInterval);
-                animateOutInterval = setInterval(animateOut, 2, canvas);
+                clearInterval(animateInInterval[animateId]);
+                clearInterval(animateOutInterval[animateId]);
+                animateOutInterval[animateId] = setInterval(animateOut, 2, canvas);
             });
         }
     })

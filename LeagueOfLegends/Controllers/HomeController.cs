@@ -1,9 +1,4 @@
-﻿using LeagueOfLegends.Models.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace LeagueOfLegends.Controllers
 {
@@ -14,18 +9,9 @@ namespace LeagueOfLegends.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public PartialViewResult News()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return PartialView();
         }
     }
 }
