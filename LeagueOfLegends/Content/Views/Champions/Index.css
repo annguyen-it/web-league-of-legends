@@ -1,0 +1,15 @@
+﻿header {
+    margin-top: 2rem;
+}
+
+    header .line-2 {
+        font-size: calc(61.82px + 3.03vw);
+        line-height: 0.85;
+    }
+
+    header .line-3 {
+        max-width: 680px;
+        padding: 0 10%;
+        line-height: 1.6;
+        letter-spacing: 1.12px;
+    }
