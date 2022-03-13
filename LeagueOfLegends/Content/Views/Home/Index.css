@@ -94,16 +94,20 @@ main .section-1 .news {
 }
 
 main .section-1 article {
+    -ms-flex: 1 1 100%;
+    -webkit-flex: 1 1 100%;
+    flex: 1 1 100%;
     margin: 0 25px;
     padding: 10px;
     max-width: 420px;
+    min-width: 270px;
 }
 
-main .section-1 .news .col:first-child article {
+main .section-1 .news article:first-child {
     margin-left: 0;
 }
 
-main .section-1 .news .col:last-child article {
+main .section-1 .news article:last-child {
     margin-right: 0;
 }
 
