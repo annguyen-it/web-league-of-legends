@@ -5,7 +5,69 @@
   @foreach (var champion in Model)
   {
     <div class="col">
-      <img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/@(champion.id)_0.jpg" alt="@champion.name" class="w-100"/>
+        <div class=" footer-images">
+            <p class="content">@champion.name</p>
+        </div>
+        <img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/@(champion.id)_0.jpg" alt="@champion.name" class="w-100" />
+
+        <style>
+            .col {
+                width: 252px;
+                height: 340px;
+                margin: 10px 10px 10px 10px;
+                overflow: hidden;
+                position: relative;
+                transition: all 0.36s;
+                clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 8%, 92% 0%);
+            }
+
+                .col img {
+                    width: 252px;
+                    transition: all 0.36s;
+                    -webkit-transform: scale(1.2);
+                    transform: scale(1.2);                        
+                }
+                .col:hover {
+                    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0%, 100% 0%);
+                }
+                .col:hover img {
+                    -webkit-transform: scale(1.14);
+                    transform: scale(1.14);
+                    cursor: pointer;
+                    
+                }
+
+            .footer-images {
+                height: 56px;
+                width: 252px;
+                margin-top: 288px;
+                background-color: rgb(6, 28, 37);
+                cursor: pointer;
+                position: absolute;
+                z-index: 3;
+                -webkit-transform: scale(1.2);
+                transform: scale(1.2)
+            }
+                .footer-images p {
+                    transition: 360ms;
+                    font-size: 18px;
+                    margin-left: 30px;
+                    padding: 10px 0 10px 0;
+                    color: white;
+                    text-transform: uppercase;
+                    font-style: oblique;
+                    font-family: "Beaufort for LOL", serif;
+                }
+                .col:hover .footer-images{
+                    background-color: #006680;
+                    transition: 300ms;
+                }
+                .col:hover .content{
+                    padding-left: 12px;
+                    
+
+                }
+        </style>
     </div>
   }
 </div>
