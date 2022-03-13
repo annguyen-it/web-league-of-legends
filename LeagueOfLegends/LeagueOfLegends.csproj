@@ -240,6 +240,8 @@
     <Content Include="fonts\Spiegel-Regular.woff" />
     <Content Include="fonts\Spiegel-SemiBold.woff" />
     <Content Include="fonts\Spiegel-SemiBoldItalic.woff" />
+    <Content Include="images\logo\downloadontheappstore.png" />
+    <Content Include="images\logo\getitongoogleplay.png" />
     <Content Include="images\logo\logo-full.png" />
     <Content Include="Models\LeagueOfLegends.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
