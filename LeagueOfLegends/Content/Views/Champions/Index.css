@@ -13,6 +13,7 @@
         line-height: 1.6;
         letter-spacing: 1.12px;
     }
+
 .menu-bar {
     height: 60px;
     width: 1300px;
@@ -25,11 +26,10 @@
     color: rgb(202, 202, 202);
     border-width: 0.8px;
 }
+
 .nav li {
     padding: 15px 8px;
     list-style-type: none;
-
-    
 }
 
     .nav li a {
@@ -42,3 +42,61 @@
         font-family: Spiegel, "Arial Narrow", Arial, sans-serif;
     }
 
+.champion-wrapper {
+    margin: calc(4.5% - 20px) calc(4% - 20px) 0px;
+}
+
+.champion-card {
+    height: 340px;
+    overflow: hidden;
+    transition: all 0.36s;
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 20px, calc(100% - 20px) 0%);
+}
+
+    .champion-card img {
+        width: 252px;
+        transition: all 0.36s;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    .champion-card:hover {
+        clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0%, 100% 0%);
+    }
+
+        .champion-card :hover img {
+            -webkit-transform: scale(1.14);
+            transform: scale(1.14);
+            cursor: pointer;
+        }
+
+.name-tag {
+    height: 56px;
+    margin-top: 288px;
+    background-color: rgb(6, 28, 37);
+    cursor: pointer;
+    position: absolute;
+    z-index: 3;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2)
+}
+
+    .name-tag p {
+        transition: 360ms;
+        font-size: 18px;
+        margin-left: 30px;
+        padding: 10px 0 10px 0;
+        color: white;
+        text-transform: uppercase;
+        font-style: oblique;
+        font-family: "Beaufort for LOL", serif;
+    }
+
+.champion-card:hover .name-tag {
+    background-color: #006680;
+    transition: background-color 300ms ease-in-out;
+}
+
+    .champion-card:hover .name-tag p {
+        padding-left: 12px;
+    }
