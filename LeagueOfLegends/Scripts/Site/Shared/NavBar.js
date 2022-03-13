@@ -17,7 +17,6 @@ function calculateItem() {
 
     $($('nav.navbar .navbar-nav > li').get().reverse()).each(function (i) {
         if (this.classList.contains('more')) return;
-        console.log(i);
 
         const rightBtn = $('nav.navbar .right-btn')[1];
         if (rightBtn.clientWidth + rightBtn.offsetLeft >= windowWidth && !enough) {
