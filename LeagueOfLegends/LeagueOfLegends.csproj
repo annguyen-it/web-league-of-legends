@@ -233,8 +233,8 @@
     <Content Include="fonts\BeaufortforLOL-Bold.woff" />
     <Content Include="fonts\BeaufortforLOL-HeavyItalic.woff" />
     <Content Include="fonts\BeaufortforLOL-Regular.woff" />
-    <Content Include="fonts\cdb13a7a-2f13-4f7c-b7a3-01b4ccef574d.woff2" />
-    <Content Include="fonts\ffbb4591-1a9c-443b-9b6e-6ceb6a3ca76b.woff2" />
+    <Content Include="fonts\MarkPro-Light.woff2" />
+    <Content Include="fonts\MarkPro-Regular.woff2" />
     <Content Include="fonts\MarkPro-Bold.woff2" />
     <Content Include="fonts\Spiegel-Bold.woff" />
     <Content Include="fonts\Spiegel-BoldItalic.woff" />
@@ -244,6 +244,8 @@
     <Content Include="images\logo\downloadontheappstore.png" />
     <Content Include="images\logo\getitongoogleplay.png" />
     <Content Include="images\logo\logo-full.png" />
+    <Content Include="images\logo\pegi-eu.png" />
+    <Content Include="images\logo\usk-12.png" />
     <Content Include="Models\LeagueOfLegends.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LeagueOfLegends.edmx</DependentUpon>

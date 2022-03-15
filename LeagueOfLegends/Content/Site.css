@@ -104,7 +104,20 @@ textarea {
 
 @font-face {
     font-family: "MarkPro";
+    font-weight: normal;
+    src: url("../fonts/MarkPro-Regular.woff2");
+}
+
+@font-face {
+    font-family: "MarkPro";
+    font-weight: bold;
     src: url("../fonts/MarkPro-Bold.woff2");
+}
+
+@font-face {
+    font-family: "MarkPro";
+    font-weight: lighter;
+    src: url("../fonts/MarkPro-Light.woff2");
 }
 
 body {

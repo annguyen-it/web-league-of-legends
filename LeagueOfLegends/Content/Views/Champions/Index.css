@@ -42,6 +42,10 @@
         font-family: Spiegel, "Arial Narrow", Arial, sans-serif;
     }
 
+.champion-container {
+    max-width: 1440px;
+}
+
 .champion-wrapper {
     margin: calc(4.5% - 20px) calc(4% - 20px) 0px;
 }
@@ -64,9 +68,9 @@
         clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0%, 100% 0%);
     }
 
-        .champion-card :hover img {
-            -webkit-transform: scale(1.14);
-            transform: scale(1.14);
+        .champion-card:hover img {
+            -webkit-transform: scale(1.15);
+            transform: scale(1.15);
             cursor: pointer;
         }
 
