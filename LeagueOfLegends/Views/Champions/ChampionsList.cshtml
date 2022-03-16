@@ -7,7 +7,7 @@
       @foreach (var champion in Model)
       {
         <div class="col position-relative">
-          <a href="#" class="champion-card d-block">
+          <a class="champion-card d-block" href="@Url.Action("ChampionDetails", "Champions", new {id = champion.id})">
             <img class="w-100" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/@(champion.id)_0.jpg" alt="@champion.name" />
             <div class="name-tag position-absolute bottom-0 w-100">
               <p>@champion.name</p>

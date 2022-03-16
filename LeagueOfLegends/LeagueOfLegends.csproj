@@ -220,6 +220,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Views\Champions\ChampionDetails.css" />
     <Content Include="Content\Views\Champions\Index.css" />
     <Content Include="Content\Views\Home\Index.css" />
     <Content Include="Content\Views\Shared\Footer.css" />
@@ -323,6 +324,7 @@
     <Content Include="Views\Champions\Index.cshtml" />
     <Content Include="Views\Champions\ChampionsList.cshtml" />
     <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Champions\ChampionDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

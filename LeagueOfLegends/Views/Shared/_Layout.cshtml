@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>League of Legends | @ViewBag.Title</title>
+  <title>@ViewBag.Title - League of Legends</title>
   <script src="https://kit.fontawesome.com/9ed593a796.js" crossorigin="anonymous"></script>
   <link href="@Url.Content("~/images/favicon/favicon.ico")" rel="shortcut icon" type="image/x-icon" />
   @Styles.Render("~/Content/css")
@@ -27,7 +27,8 @@
 
   @Scripts.Render("~/bundles/jquery")
   @Scripts.Render("~/bundles/bootstrap")
-<script src="@Url.Content("~/Scripts/Site/Shared/NavBar.js")"></script>
+  <script src="@Url.Content("~/Scripts/Site/CanvasRect.js")"></script>
+  <script src="@Url.Content("~/Scripts/Site/Shared/NavBar.js")"></script>
   @if (IsSectionDefined("Scripts"))
   {
     @RenderSection("Scripts", required: false);
