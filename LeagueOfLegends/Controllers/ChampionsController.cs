@@ -17,5 +17,17 @@ namespace LeagueOfLegends.Controllers
         {
             return PartialView(db.Champions.ToList());
         }
+
+        public ViewResult ChampionDetails(string id)
+        {
+            var xx = db.Champions.Count();
+            Champion champion = db.Champions.FirstOrDefault(x => x.id == id);
+            if (champion == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(champion);
+        }
     }
 }

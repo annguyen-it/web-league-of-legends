@@ -11,6 +11,21 @@
         background-color: #13D8F6;
     }
 
+footer .footer-btn {
+    color: #f9f9f9;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    -moz-transition: background-color 0.2s ease-in-out;
+    -o-transition: background-color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+}
+
+    footer .footer-btn:hover {
+        background-color: rgba(128,128,128,.3);
+    }
+
 footer .presenter__play button {
     width: 195px;
     height: 56px;
@@ -23,3 +38,108 @@ footer .presenter__play button {
     footer .presenter__play button:hover {
         background-color: #13D8F6;
     }
+
+footer .section-0 {
+    margin-top: -6px;
+    padding: 20px 60px;
+    background-color: #061C24;
+    color: #D1DADE;
+}
+
+
+    footer .section-0 > :first-child {
+        flex-basis: 25%;
+        font-size: 16px;
+        letter-spacing: 1.3px;
+    }
+
+    footer .section-0 > :nth-child(2) {
+        flex-basis: auto;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    footer .section-0 > :last-child {
+        flex-basis: 25%;
+    }
+
+    footer .section-0 a {
+        height: 38px;
+        overflow: hidden;
+    }
+
+        footer .section-0 a:nth-child(2) {
+            width: 124px;
+        }
+
+    footer .section-0 img {
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+    footer .section-0 a:nth-child(2) img {
+        width: 115%;
+        height: 158%;
+        transform: translate(-7%, -18%);
+    }
+
+footer .section-1 {
+    padding: 24px;
+    background-color: #292929;
+}
+
+    footer .section-1 ul {
+        list-style-type: none;
+    }
+
+footer .section-2 {
+    background-color: #111111;
+}
+
+    footer .section-2 ul {
+        list-style-type: none;
+    }
+
+    footer .section-2 .link a {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+        color: #f9f9f9;
+        border-radius: 12px;
+        background-color: rgba(128,128,128,.2);
+        -moz-transition: background-color 0.2s ease-in-out;
+        -o-transition: background-color 0.2s ease-in-out;
+        -webkit-transition: background-color 0.2s ease-in-out;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+        footer .section-2 .link a:hover {
+            background-color: rgba(128,128,128,.35);
+        }
+
+    footer .section-2 .about {
+        color: #7e7e7e;
+    }
+
+        footer .section-2 .about svg {
+            fill: #7e7e7e;
+            -moz-transition: fill 0.15s ease-in-out;
+            -o-transition: fill 0.15s ease-in-out;
+            -webkit-transition: fill 0.15s ease-in-out;
+            transition: fill 0.15s ease-in-out;
+        }
+
+            footer .section-2 .about svg:hover {
+                fill: #f9f9f9;
+            }
+
+
+        footer .section-2 .about p {
+            margin: 0 auto;
+            max-width: 640px;
+            font-size: 13px;
+        }
+
+footer .rating a {
+    background-color: #292929;
+}

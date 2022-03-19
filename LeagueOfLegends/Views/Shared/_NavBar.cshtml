@@ -1,49 +1,182 @@
-﻿<div class="container-fluid">
-  <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-    <svg xmlns="http://www.w3.org/2000/svg" class="league" width="30" height="32" viewBox="0 0 30 32" fill="none">
-      <g>
-        <path d="M1.80644 9.75049C0.655032 11.8373 0 14.2271 0 16.7683C0 19.3095 0.655032 21.7015 1.80644 23.7883V9.75049Z" fill="#C28F2C"></path>
-        <path d="M15 2.02222C13.7829 2.02222 12.602 2.16921 11.4688 2.43647V4.75718C12.5907 4.44093 13.7738 4.26721 15 4.26721C22.0218 4.26721 27.7153 9.84627 27.7153 16.7305C27.7153 19.8307 26.5571 22.6659 24.6464 24.8463L24.2838 26.118L23.4814 28.9331C27.4184 26.2761 30.0023 21.8195 30.0023 16.7705C30 8.62355 23.2843 2.02222 15 2.02222Z" fill="#C28F2C"></path>
-        <path d="M11.4688 24.4209H22.9737H23.2253C25.1723 22.4209 26.3713 19.7126 26.3713 16.7305C26.3713 10.5746 21.2806 5.58569 15 5.58569C13.767 5.58569 12.5816 5.78168 11.4688 6.1358V24.4209Z" fill="#C28F2C"></path>
-        <path d="M10.1088 0H1.55029L3.16634 3.29844V28.7038L1.55029 32H21.1922L22.9737 25.7572H10.1088V0Z" fill="#C28F2C"></path>
-      </g>
-    </svg>
-  </a>
+﻿<div class="container-fluid navbar-dark ps-4 pe-3 font-mark-pro fw-bold">
+  <div class="d-flex justify-content-between flex-grow-1 flex-xl-grow-0">
+    <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+      <svg xmlns="http://www.w3.org/2000/svg" class="league" width="30" height="32" viewBox="0 0 30 32" fill="none">
+        <g>
+          <path d="M1.80644 9.75049C0.655032 11.8373 0 14.2271 0 16.7683C0 19.3095 0.655032 21.7015 1.80644 23.7883V9.75049Z" fill="#C28F2C"></path>
+          <path d="M15 2.02222C13.7829 2.02222 12.602 2.16921 11.4688 2.43647V4.75718C12.5907 4.44093 13.7738 4.26721 15 4.26721C22.0218 4.26721 27.7153 9.84627 27.7153 16.7305C27.7153 19.8307 26.5571 22.6659 24.6464 24.8463L24.2838 26.118L23.4814 28.9331C27.4184 26.2761 30.0023 21.8195 30.0023 16.7705C30 8.62355 23.2843 2.02222 15 2.02222Z" fill="#C28F2C"></path>
+          <path d="M11.4688 24.4209H22.9737H23.2253C25.1723 22.4209 26.3713 19.7126 26.3713 16.7305C26.3713 10.5746 21.2806 5.58569 15 5.58569C13.767 5.58569 12.5816 5.78168 11.4688 6.1358V24.4209Z" fill="#C28F2C"></path>
+          <path d="M10.1088 0H1.55029L3.16634 3.29844V28.7038L1.55029 32H21.1922L22.9737 25.7572H10.1088V0Z" fill="#C28F2C"></path>
+        </g>
+      </svg>
+    </a>
+    <div class="right-btn me-2 d-flex align-items-center d-xl-none">
+      <button class="locale-btn d-flex align-items-center me-2 px-3 py-2 border-0 bg-transparent">
+        <svg width="14" height="14" class="" viewBox="0 0 16 16">
+          <path d="M7.992 0C3.576 0 0 3.584 0 8s3.576 8 7.992 8C12.416 16 16 12.416 16 8s-3.584-8-8.008-8zm5.544 4.8h-2.36c-.256-1-.624-1.96-1.104-2.848A6.424 6.424 0 0113.536 4.8zM8 1.632A11.27 11.27 0 019.528 4.8H6.472A11.27 11.27 0 018 1.632zM1.808 9.6A6.594 6.594 0 011.6 8c0-.552.08-1.088.208-1.6h2.704A13.212 13.212 0 004.4 8c0 .544.048 1.072.112 1.6H1.808zm.656 1.6h2.36c.256 1 .624 1.96 1.104 2.848A6.39 6.39 0 012.464 11.2zm2.36-6.4h-2.36a6.39 6.39 0 013.464-2.848A12.52 12.52 0 004.824 4.8zM8 14.368A11.27 11.27 0 016.472 11.2h3.056A11.27 11.27 0 018 14.368zM9.872 9.6H6.128A11.77 11.77 0 016 8c0-.544.056-1.08.128-1.6h3.744C9.944 6.92 10 7.456 10 8s-.056 1.072-.128 1.6zm.2 4.448a12.52 12.52 0 001.104-2.848h2.36a6.424 6.424 0 01-3.464 2.848zM11.488 9.6c.064-.528.112-1.056.112-1.6s-.048-1.072-.112-1.6h2.704c.128.512.208 1.048.208 1.6s-.08 1.088-.208 1.6h-2.704z" fill="#E8E8E8"></path>
+        </svg>
+      </button>
+      <a class="sign-in me-2 px-3 py-2 text-decoration-none text-uppercase" href="https://auth.riotgames.com/login">Sign in</a>
+      <a class="play-now px-3 py-2 text-decoration-none text-uppercase" href="https://signup.euw.leagueoflegends.com/en/signup">Play now</a>
+    </div>
+  </div>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-      <li class="nav-item">
-        <a href="https://www.leagueoflegends.com/en-gb/how-to-play/">Game</a>
+  <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+    <ul class="navbar-nav text-uppercase">
+      <li class="nav-item position-relative me-1 d-flex align-items-center">
+        <a class="h-100 d-flex align-items-center text-decoration-none" href="https://www.leagueoflegends.com/en-gb/how-to-play/">
+          <p>Game</p>
+        </a>
+        <span class="dash position-absolute bottom-0 d-block"></span>
       </li>
-      <li class="nav-item">
-        <a href="@Url.Action("Index", "Champions")">Game</a>
+      <li class="nav-item position-relative me-1 d-flex align-items-center">
+        <a class="h-100 d-flex align-items-center text-decoration-none" href="@Url.Action("Index", "Champions")">
+          <p>Champions</p>
+        </a>
+        <span class="dash position-absolute bottom-0 d-block"></span>
       </li>
-      <li class="nav-item">
-        <a href="@Url.Action("Index", "Home")">Game</a>
+      <li class="nav-item position-relative me-1 d-flex align-items-center">
+        <div class="position-relative h-100 d-flex align-items-center">
+          <p>
+            News
+            <svg width="10" height="5" class="_16evwnRjE9JvfFbOuuC-EF _1lBECl9xmO0n7vnCvf6_dD" viewBox="0 0 8 5">
+              <path d="M.707 1.707l2.586 2.586a1 1 0 001.414 0l2.586-2.586C7.923 1.077 7.477 0 6.586 0H1.414C.524 0 .077 1.077.707 1.707z" fill="#7E7E7E"></path>
+            </svg>
+          </p>
+          <div class="dropdown position-absolute top-100 text-capitalize">
+            <span class="dash position-absolute bottom-100 d-block"></span>
+            <ul class="px-0 pt-3 pb-2">
+              <li class="d-block mx-3 my-1">
+                <a class="d-block px-3 py-2 text-decoration-none" href="https://www.leagueoflegends.com/en-gb/news/">All</a>
+              </li>
+              <li class="d-block mx-3 my-1">
+                <a class="d-block px-3 py-2 text-decoration-none" href="https://www.leagueoflegends.com/en-gb/news/game-updates/">Game Updates</a>
+              </li>
+              <li class="d-block mx-3 my-1">
+                <a class="d-block px-3 py-2 text-decoration-none" href="https://www.leagueoflegends.com/en-gb/news/esports/">Esports</a>
+              </li>
+              <li class="d-block mx-3 my-1">
+                <a class="d-block px-3 py-2 text-decoration-none" href="https://www.leagueoflegends.com/en-gb/news/dev/">Dev</a>
+              </li>
+              <li class="d-block mx-3 my-1">
+                <a class="d-block px-3 py-2 text-decoration-none" href="https://www.leagueoflegends.com/en-gb/news/lore/">Lore</a>
+              </li>
+              <li class="d-block mx-3 my-1">
+                <a class="d-block px-3 py-2 text-decoration-none" href="https://www.leagueoflegends.com/en-gb/news/media/">Media</a>
+              </li>
+              <li class="d-block mx-3 my-1">
+                <a class="d-block px-3 py-2 text-decoration-none" href="https://www.leagueoflegends.com/en-gb/news/merch/">Merch</a>
+              </li>
+              <li class="d-block mx-3 my-1">
+                <a class="d-block px-3 py-2 text-decoration-none" href="https://www.leagueoflegends.com/en-gb/news/community/">Community</a>
+              </li>
+              <li class="d-block mx-3 my-1">
+                <a class="d-block px-3 py-2 text-decoration-none" href="https://www.leagueoflegends.com/en-gb/news/riot-games/">Riot Games</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </li>
-      <li class="nav-item">
-        <div>News</div>
+      <li class="nav-item position-relative me-1 d-flex align-items-center">
+        <a class="h-100 d-flex align-items-center text-decoration-none" href="https://www.leagueoflegends.com/en-gb/news/tags/patch-notes/">
+          <p>Patch notes</p>
+        </a>
+        <span class="dash position-absolute bottom-0 d-block"></span>
       </li>
-      <li class="nav-item">
-        <a href="https://www.leagueoflegends.com/en-gb/news/tags/patch-notes/">Patch notes</a>
+      <li class="nav-item position-relative me-1 d-flex align-items-center">
+        <div class="h-100 d-flex align-items-center">
+          <p>
+            Discover
+            <svg width="10" height="5" class="_16evwnRjE9JvfFbOuuC-EF _1lBECl9xmO0n7vnCvf6_dD" viewBox="0 0 8 5">
+              <path d="M.707 1.707l2.586 2.586a1 1 0 001.414 0l2.586-2.586C7.923 1.077 7.477 0 6.586 0H1.414C.524 0 .077 1.077.707 1.707z" fill="#7E7E7E"></path>
+            </svg>
+          </p>
+          <div class="dropdown position-absolute top-100 text-capitalize">
+            <span class="dash position-absolute top-0 d-block"></span>
+            <ul class="px-0 pt-3 pb-2">
+              <li class="d-block mx-3 my-1">
+                <a class="d-block px-3 py-2 text-decoration-none" href="https://euw.leagueoflegends.com/en/featured/league-displays">League Displays</a>
+              </li>
+              <li class="d-block mx-3 my-1">
+                <a class="d-block px-3 py-2 text-decoration-none" href="https://www.leagueoflegends.com/en-gb/news/riot-games/hello-riot-mobile-farewell-league/">Riot Mobile</a>
+              </li>
+              <li class="d-block mx-3 my-1">
+                <a class="d-block px-3 py-2 text-decoration-none" href="https://euw.leagueoflegends.com/en/featured/events/avatar-creator">Avatar Creator</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </li>
-      <li class="nav-item">
-        <div>Discover</div>
+      <li class="nav-item position-relative me-1 d-flex align-items-center">
+        <a class="h-100 d-flex align-items-center text-decoration-none" href="https://lolesports.com/en">
+          <p>
+            Esports
+            <svg width="7" height="7" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12.916 4.158c0-.277-.116-.55-.32-.753a1.073 1.073 0 00-.752-.32H3.428l.144 2h5.93l-6.803 6.803 1.414 1.414L10.916 6.5v5.928l2 .144V4.158z" fill="#737373"></path>
+            </svg>
+          </p>
+        </a>
+        <span class="dash position-absolute bottom-0 d-block"></span>
       </li>
-      <li class="nav-item">
-        <a href="https://www.leagueoflegends.com/en-gb/news/tags/patch-notes/">Esport</a>
+      <li class="nav-item position-relative me-1 d-flex align-items-center">
+        <a class="h-100 d-flex align-items-center text-decoration-none" href="https://universe.leagueoflegends.com/en_GB/">
+          <p>
+            Universe
+            <svg width="7" height="7" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12.916 4.158c0-.277-.116-.55-.32-.753a1.073 1.073 0 00-.752-.32H3.428l.144 2h5.93l-6.803 6.803 1.414 1.414L10.916 6.5v5.928l2 .144V4.158z" fill="#737373"></path>
+            </svg>
+          </p>
+        </a>
+        <span class="dash position-absolute bottom-0 d-block"></span>
       </li>
-      <li class="nav-item">
-        <div>Universe</div>
+      <li class="nav-item position-relative me-1 d-flex align-items-center">
+        <a class="h-100 d-flex align-items-center text-decoration-none" href="https://merch.riotgames.com/en-gb/">
+          <p>
+            Merch
+            <svg width="7" height="7" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12.916 4.158c0-.277-.116-.55-.32-.753a1.073 1.073 0 00-.752-.32H3.428l.144 2h5.93l-6.803 6.803 1.414 1.414L10.916 6.5v5.928l2 .144V4.158z" fill="#737373"></path>
+            </svg>
+          </p>
+        </a>
+        <span class="dash position-absolute bottom-0 d-block"></span>
       </li>
-      <li class="nav-item">
-        <a href="https://www.leagueoflegends.com/en-gb/news/tags/patch-notes/">Patch notes</a>
+      <li class="nav-item position-relative me-1 d-flex align-items-center">
+        <a class="h-100 d-flex align-items-center text-decoration-none" href="https://support.riotgames.com/hc/en-us">
+          <p>
+            Support
+            <svg width="7" height="7" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12.916 4.158c0-.277-.116-.55-.32-.753a1.073 1.073 0 00-.752-.32H3.428l.144 2h5.93l-6.803 6.803 1.414 1.414L10.916 6.5v5.928l2 .144V4.158z" fill="#737373"></path>
+            </svg>
+          </p>
+        </a>
+        <span class="dash position-absolute bottom-0 d-block"></span>
       </li>
-      <li class="nav-item">
-        <div>Discover</div>
+      <li class="more nav-item position-relative me-1 d-none align-items-center">
+        <div class="h-100 d-flex align-items-center">
+          <p>
+            More
+            <svg width="10" height="5" class="_16evwnRjE9JvfFbOuuC-EF _1lBECl9xmO0n7vnCvf6_dD" viewBox="0 0 8 5">
+              <path d="M.707 1.707l2.586 2.586a1 1 0 001.414 0l2.586-2.586C7.923 1.077 7.477 0 6.586 0H1.414C.524 0 .077 1.077.707 1.707z" fill="#7E7E7E"></path>
+            </svg>
+          </p>
+          <div class="dropdown position-absolute top-100 text-capitalize">
+            <span class="dash position-absolute top-0 d-block"></span>
+            <ul class="px-0 pt-3 pb-2"></ul>
+          </div>
+        </div>
       </li>
     </ul>
+
+    <div class="right-btn d-none d-xl-flex align-items-center">
+      <button class="locale-btn d-flex align-items-center me-2 px-3 py-2 border-0 bg-transparent">
+        <svg width="14" height="14" class="" viewBox="0 0 16 16">
+          <path d="M7.992 0C3.576 0 0 3.584 0 8s3.576 8 7.992 8C12.416 16 16 12.416 16 8s-3.584-8-8.008-8zm5.544 4.8h-2.36c-.256-1-.624-1.96-1.104-2.848A6.424 6.424 0 0113.536 4.8zM8 1.632A11.27 11.27 0 019.528 4.8H6.472A11.27 11.27 0 018 1.632zM1.808 9.6A6.594 6.594 0 011.6 8c0-.552.08-1.088.208-1.6h2.704A13.212 13.212 0 004.4 8c0 .544.048 1.072.112 1.6H1.808zm.656 1.6h2.36c.256 1 .624 1.96 1.104 2.848A6.39 6.39 0 012.464 11.2zm2.36-6.4h-2.36a6.39 6.39 0 013.464-2.848A12.52 12.52 0 004.824 4.8zM8 14.368A11.27 11.27 0 016.472 11.2h3.056A11.27 11.27 0 018 14.368zM9.872 9.6H6.128A11.77 11.77 0 016 8c0-.544.056-1.08.128-1.6h3.744C9.944 6.92 10 7.456 10 8s-.056 1.072-.128 1.6zm.2 4.448a12.52 12.52 0 001.104-2.848h2.36a6.424 6.424 0 01-3.464 2.848zM11.488 9.6c.064-.528.112-1.056.112-1.6s-.048-1.072-.112-1.6h2.704c.128.512.208 1.048.208 1.6s-.08 1.088-.208 1.6h-2.704z" fill="#E8E8E8"></path>
+        </svg>
+      </button>
+      <a class="sign-in me-2 px-3 py-2 text-decoration-none text-uppercase" href="https://auth.riotgames.com/login" role="button">Sign in</a>
+      <a class="play-now px-3 py-2 text-decoration-none text-uppercase" href="https://signup.euw.leagueoflegends.com/en/signup" role="button">Play now</a>
+    </div>
   </div>
 </div>

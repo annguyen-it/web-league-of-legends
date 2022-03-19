@@ -102,6 +102,24 @@ textarea {
     src: url("../fonts/BeaufortforLOL-Bold.woff");
 }
 
+@font-face {
+    font-family: "MarkPro";
+    font-weight: normal;
+    src: url("../fonts/MarkPro-Regular.woff2");
+}
+
+@font-face {
+    font-family: "MarkPro";
+    font-weight: bold;
+    src: url("../fonts/MarkPro-Bold.woff2");
+}
+
+@font-face {
+    font-family: "MarkPro";
+    font-weight: lighter;
+    src: url("../fonts/MarkPro-Light.woff2");
+}
+
 body {
     font-size: 14px;
     font-family: Spiegel, "Arial Narrow", Arial, sans-serif;
@@ -112,7 +130,11 @@ body {
 }
 
 .font-beaufort {
-    font-family: "Beaufort for LOL", serif
+    font-family: "Beaufort for LOL", serif;
+}
+
+.font-mark-pro {
+    font-family: "MarkPro", Arial ,sans-serif;
 }
 
 .canvas-wrapper {

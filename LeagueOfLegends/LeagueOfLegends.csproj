@@ -220,6 +220,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Views\Champions\ChampionDetails.css" />
     <Content Include="Content\Views\Champions\Index.css" />
     <Content Include="Content\Views\Home\Index.css" />
     <Content Include="Content\Views\Shared\Footer.css" />
@@ -233,15 +234,19 @@
     <Content Include="fonts\BeaufortforLOL-Bold.woff" />
     <Content Include="fonts\BeaufortforLOL-HeavyItalic.woff" />
     <Content Include="fonts\BeaufortforLOL-Regular.woff" />
-    <Content Include="fonts\cdb13a7a-2f13-4f7c-b7a3-01b4ccef574d.woff2" />
-    <Content Include="fonts\ffbb4591-1a9c-443b-9b6e-6ceb6a3ca76b.woff2" />
+    <Content Include="fonts\MarkPro-Light.woff2" />
+    <Content Include="fonts\MarkPro-Regular.woff2" />
     <Content Include="fonts\MarkPro-Bold.woff2" />
     <Content Include="fonts\Spiegel-Bold.woff" />
     <Content Include="fonts\Spiegel-BoldItalic.woff" />
     <Content Include="fonts\Spiegel-Regular.woff" />
     <Content Include="fonts\Spiegel-SemiBold.woff" />
     <Content Include="fonts\Spiegel-SemiBoldItalic.woff" />
+    <Content Include="images\logo\downloadontheappstore.png" />
+    <Content Include="images\logo\getitongoogleplay.png" />
     <Content Include="images\logo\logo-full.png" />
+    <Content Include="images\logo\pegi-eu.png" />
+    <Content Include="images\logo\usk-12.png" />
     <Content Include="Models\LeagueOfLegends.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LeagueOfLegends.edmx</DependentUpon>
@@ -299,6 +304,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Site\CanvasRect.js" />
+    <Content Include="Scripts\Site\Shared\NavBar.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -318,10 +324,10 @@
     <Content Include="Views\Champions\Index.cshtml" />
     <Content Include="Views\Champions\ChampionsList.cshtml" />
     <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Champions\ChampionDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\NavBar\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
