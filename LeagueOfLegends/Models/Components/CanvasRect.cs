@@ -25,9 +25,11 @@
         public int bottom;
         public int left;
 
-        public Position() : this(0, 0) { }
+        public Position() : this(0) { }
 
-        public Position(int x, int y) : this (y, x, y, x) { }
+        public Position(int size) : this(size, size) { }
+
+        public Position(int x, int y) : this(y, x, y, x) { }
 
         public Position(int top, int right, int bottom, int left)
         {
@@ -47,8 +49,11 @@
         public string animateId;
         public string color;
         public Position position;
+        public string avoidId;
+        public string asyncId;
+        public string fill;
 
-        public CanvasRect(int size = 0, Vertex border = null, int width = 2)
+        public CanvasRect(int size, Vertex border, int width = 2)
         {
             this.size = size;
             this.border = border;
@@ -58,6 +63,9 @@
             color = "#ABABAB";
             position = new Position();
         }
+
+        public CanvasRect(int size = 0) : this(size, new Vertex())
+        { }
 
         public CanvasRect Resizable()
         {
@@ -80,6 +88,24 @@
         public CanvasRect Position(Position position)
         {
             this.position = position;
+            return this;
+        }
+
+        public CanvasRect Avoid(string avoidId)
+        {
+            this.avoidId = avoidId;
+            return this;
+        }
+
+        public CanvasRect Async(string asyncId)
+        {
+            this.asyncId = asyncId;
+            return this;
+        }
+
+        public CanvasRect Fill(string fill)
+        {
+            this.fill = fill;
             return this;
         }
     }

@@ -85,6 +85,7 @@ namespace Crawler
             }
 
             // Insert champion spells
+            var keyboardKeys = new string[] { "Q", "W", "E", "R" };
             foreach (var champion in champions.Values)
             {
                 var detailsResponse = ProcessChampion(champion.Id)["data"].ToObject<Dictionary<string, Champion>>();
@@ -92,10 +93,11 @@ namespace Crawler
                 {
                     Console.WriteLine(champion.Name);
                     if (details == null || details.Spells == null) continue;
+                    var i = 0;
                     foreach (var spell in details.Spells)
                     {
-                        var query = "INSERT INTO Spell(id, idChampion, name, image, description, maxRank) " +
-                            $"VALUES ('{spell.Id}', '{details.Id}', '{spell.Name.Replace("'", "''")}', '{spell.Image.Full}', '{spell.Description.Replace("'", "''")}', '{spell.MaxRank}')";
+                        var query = "INSERT INTO Spell(id, idChampion, name, image, description, maxRank, keyboardKey) " +
+                            $"VALUES ('{spell.Id}', '{details.Id}', '{spell.Name.Replace("'", "''")}', '{spell.Image.Full}', '{spell.Description.Replace("'", "''")}', '{spell.MaxRank}', '{keyboardKeys[i++]}')";
                         Console.WriteLine(query);
                         new SqlCommand(query, connection).ExecuteNonQuery();
                     }

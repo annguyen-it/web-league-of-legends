@@ -1,8 +1,9 @@
 ﻿let animateInInterval = animateOutInterval = extraVertexInInterval = extraVertexOutInterval = [];
 
 function handleResize(canvas) {
-    $(canvas).attr('width', $(canvas).parent().width());
-    $(canvas).attr('height', $(canvas).parent().height());
+    const strokeWidth = $(canvas).attr('data-width');
+    $(canvas).attr('width', parseFloat($(canvas).parent().width()) + parseInt(strokeWidth) - 1);
+    $(canvas).attr('height', parseFloat($(canvas).parent().height()));
 }
 
 function drawCanvas(canvas) {
@@ -12,8 +13,11 @@ function drawCanvas(canvas) {
     const bottomRight = $(canvas).attr('data-bottom-right') == 'True';
     const bottomLeft = $(canvas).attr('data-bottom-left') == 'True';
     const size = $(canvas).attr('data-current-size');
-    const strokeWidth = $(canvas).attr('data-width')
-    const strokeColor = $(canvas).attr('data-color')
+    const strokeWidth = $(canvas).attr('data-width');
+    const strokeColor = $(canvas).attr('data-color');
+    const avoidId = $(canvas).attr('data-avoid-id');
+    const fill = $(canvas).attr('data-fill');
+    const avoidElement = $(avoidId);
     const hasSize = size > 0;
     const w = $(canvas).parent().width();
     const h = $(canvas).parent().height();
@@ -28,7 +32,15 @@ function drawCanvas(canvas) {
     else {
         ctx.moveTo(0, 0);
     }
-    if (topRight && hasSize) {
+    if (avoidId) {
+        const left = avoidElement[0].getBoundingClientRect().left - canvas.getBoundingClientRect().left - 20;
+        ctx.lineTo(left, 0);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(left + avoidElement.width() + 20, 0);
+        ctx.lineTo(w, 0);
+    }
+    else if (topRight && hasSize) {
         ctx.lineTo(w - size, 0);
         ctx.lineTo(w, size);
     }
@@ -49,7 +61,16 @@ function drawCanvas(canvas) {
     else {
         ctx.lineTo(0, h);
     }
-    ctx.closePath();
+    if (avoidId) {
+        ctx.lineTo(0, 0);
+    }
+    else {
+        ctx.closePath();
+    }
+    if (fill) {
+        ctx.fillStyle = fill;
+        ctx.fill();
+    }
     ctx.stroke();
 }
 
@@ -79,10 +100,29 @@ function animateOut(canvas) {
 }
 
 $(document).ready(function () {
-    $(".canvas-rect-wrapper").each(function () {
+    $('.canvas-rect-wrapper').each(function () {
         $(this).parent().addClass('position-relative');
         const canvas = $(this).find('canvas')[0];
-        draw(canvas);
+        const asyncId = $(canvas).attr('data-async-id');
+
+        if (asyncId) {
+            switch ($(asyncId)[0].tagName.toLowerCase()) {
+                case 'img':
+                    $(asyncId).imagesLoaded(function () {
+                        draw(canvas);
+                    })
+                    break;
+                case 'video':
+                    $(asyncId)[0].onloadeddata = function () {
+                        draw(canvas);
+                    }
+                    break;
+            }
+        }
+        else {
+            draw(canvas);
+        }
+
         if ($(canvas).attr('data-resizable') == 'True') {
             $(window).resize(function () {
                 draw(canvas);
@@ -91,12 +131,14 @@ $(document).ready(function () {
         const animateId = $(canvas).attr('data-animate-id');
         if (animateId != '') {
             $(canvas).attr('data-animate-in', false);
-            $(this).hover(function () {
+            $(this).hover(function (e) {
+                e.stopPropagation();
                 $(canvas).attr('data-animate-in', true);
                 clearInterval(animateInInterval[animateId]);
                 clearInterval(animateOutInterval[animateId]);
                 animateInInterval[animateId] = setInterval(animateIn, 1, canvas);
-            }, function () {
+            }, function (e) {
+                e.stopPropagation();
                 $(canvas).attr('data-animate-in', false);
                 clearInterval(animateInInterval[animateId]);
                 clearInterval(animateOutInterval[animateId]);

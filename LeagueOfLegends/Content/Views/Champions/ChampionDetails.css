@@ -1,2 +1,440 @@
-﻿body {
+﻿.section-title {
+    position: absolute;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    transform: rotate(-90deg) translateX(-100%);
+    z-index: 100;
 }
+
+    .section-title::after {
+        content: "";
+        width: 15px;
+        height: 1px;
+        display: block;
+        background-color: #ffffff;
+        margin-left: 5px;
+    }
+
+.section-content {
+    max-width: 2040px;
+    padding: 0 3.75rem;
+}
+
+.overview,
+.abilities {
+    background-color: #000913;
+}
+
+    .overview img {
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: center 20%;
+        object-position: center 20%;
+    }
+
+    .overview .btn-list {
+        top: 50px;
+        right: 30px;
+        font-size: 10px;
+        z-index: 100;
+    }
+
+        .overview .btn-list a {
+            padding: 10px 20px;
+            letter-spacing: 1.6px;
+            font-weight: 600;
+        }
+
+            .overview .btn-list a span, 
+            .overview .btn-list a svg {
+/*                z-index: 1*/
+            }
+
+            .overview .btn-list a svg {
+                width: 14px;
+                height: 14px;
+            }
+
+    .overview .divider {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .overview .section-title {
+        transform: rotate(-90deg) translate(-400%, -60%);
+    }
+
+    .overview .section-background-wrapper {
+        height: 80vh;
+        max-height: 800px;
+    }
+
+    .overview .section-background-img {
+        left: -5%;
+        top: -5%;
+        width: 110%;
+        height: 110%;
+    }
+
+        .overview .section-background-img::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -10%;
+            display: block;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(transparent, rgb(0, 9, 19) 70%);
+        }
+
+        .overview .section-background-img img {
+            opacity: 0.3;
+            filter: blur(8px);
+        }
+
+    .overview .foreground-asset {
+        max-width: 1335px;
+        padding-bottom: 59%;
+    }
+
+        .overview .foreground-asset .gradient {
+            height: 40%;
+            margin: 0 -3.75rem;
+            background-image: linear-gradient(transparent, #000000);
+        }
+
+    .overview .dock {
+        margin: -12rem 3.75rem 0;
+    }
+
+    .overview .dock__name {
+        text-align: center;
+    }
+
+        .overview .dock__name .title {
+            font-size: 24px;
+            letter-spacing: 0.1em;
+        }
+
+        .overview .dock__name .name {
+            font-size: 100px;
+            line-height: 0.85;
+            letter-spacing: 0.03em;
+        }
+
+    .overview .dock__info .specs,
+    .overview .dock__info .lore {
+        padding: 3.75em;
+    }
+
+    .overview .dock__info .specs {
+        letter-spacing: 0.15em;
+        line-height: 11.5px;
+    }
+
+        .overview .dock__info .specs > div {
+            font-size: 0.625rem;
+        }
+
+            .overview .dock__info .specs > div > :last-child {
+                margin-top: 2px;
+                color: #D0A85C;
+            }
+
+
+
+        .overview .dock__info .specs .specs__difficulty .difficulty-wrapper {
+            height: 36px;
+        }
+
+        .overview .dock__info .specs .specs__difficulty .difficulty {
+            height: 8px;
+            width: 75%;
+        }
+
+            .overview .dock__info .specs .specs__difficulty .difficulty > span {
+                width: 30.67%;
+                margin-right: 2px;
+                background-color: #08D7F7;
+                -moz-transform: skewX(-40deg);
+                -ms-transform: skewX(-40deg);
+                -o-transform: skewX(-40deg);
+                -webkit-transform: skewX(-40deg);
+                transform: skewX(-40deg);
+            }
+
+            .overview .dock__info .specs .specs__difficulty .difficulty.low > span:nth-child(2),
+            .overview .dock__info .specs .specs__difficulty .difficulty:not(.high) > span:nth-child(3) {
+                opacity: 0.2;
+            }
+
+    .overview .dock__info .lore {
+        letter-spacing: 1px;
+        line-height: 18px;
+    }
+
+    .overview .dock__info .divider {
+        width: 1px;
+        margin: 2.5rem 0;
+    }
+
+    .overview .dock > :not(:last-child) {
+        z-index: 10;
+    }
+
+    .overview .dock > .divider {
+        height: 1px;
+    }
+
+    .overview .dock .mastery {
+        font-size: 10px;
+    }
+
+        .overview .dock .mastery > div {
+            color: #5D6166;
+            letter-spacing: 2px;
+        }
+
+        .overview .dock .mastery ul {
+            list-style-type: none;
+            letter-spacing: 1.5px;
+        }
+
+            .overview .dock .mastery ul a:hover {
+                -webkit-text-decoration: underline !important;
+                text-decoration: underline !important;
+            }
+
+    .overview > svg {
+        stroke: #394048;
+    }
+
+.abilities {
+    padding: 75px 0 15rem;
+}
+
+    .abilities .background {
+        inset: 0;
+    }
+
+        .abilities .background .svg-wrapper {
+            display: flex;
+            -webkit-justify-content: center;
+            justify-content: center;
+        }
+
+            .abilities .background .svg-wrapper svg {
+                height: 100%;
+            }
+
+    .abilities .section-content {
+        z-index: 10;
+    }
+
+        .abilities .section-content > div {
+            padding: 0 80px 0 3%;
+        }
+
+    .abilities .section-content--left {
+        -webkit-flex-grow: 2;
+        flex-grow: 2;
+        flex-basis: 120%;
+    }
+
+    .abilities h2 {
+        font-size: 60px;
+        letter-spacing: 3px;
+    }
+
+    .abilities .abilities__list .abilities__list-item {
+        padding: 12px;
+    }
+
+        .abilities .abilities__list .abilities__list-item:not(.active) .abilities__list-item__img {
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            -moz-transform: translateY(3px);
+            -ms-transform: translateY(3px);
+            -o-transform: translateY(3px);
+            -webkit-transform: translateY(3px);
+            transform: translateY(3px);
+        }
+
+        .abilities .abilities__list .abilities__list-item:not(.active):hover .abilities__list-item__img {
+            -moz-transform: translateY(0);
+            -ms-transform: translateY(0);
+            -o-transform: translateY(0);
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+
+        .abilities .abilities__list .abilities__list-item.active .abilities__list-item__img {
+            -moz-transform: translateY(-10px);
+            -ms-transform: translateY(-10px);
+            -o-transform: translateY(-10px);
+            -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+        }
+
+        .abilities .abilities__list .abilities__list-item .spacer {
+            height: 20px;
+            margin-bottom: 5px;
+        }
+
+            .abilities .abilities__list .abilities__list-item .spacer > div {
+                width: 1px;
+                height: 0;
+                background-color: #D0A85C;
+                -moz-transition: all 0.2s ease-in-out;
+                -o-transition: all 0.2s ease-in-out;
+                -webkit-transition: all 0.2s ease-in-out;
+                transition: all 0.2s ease-in-out;
+            }
+
+        .abilities .abilities__list .abilities__list-item.active .spacer > div {
+            height: 100%;
+            -moz-transition: all 0.2s ease-in-out 0.4s;
+            -o-transition: all 0.2s ease-in-out 0.4s;
+            -webkit-transition: all 0.2s ease-in-out 0.4s;
+            transition: all 0.2s ease-in-out 0.4s;
+        }
+
+        .abilities .abilities__list .abilities__list-item .process .circle {
+            width: 9px;
+            height: 9px;
+            background-color: #394048;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            z-index: 2;
+        }
+
+        .abilities .abilities__list .abilities__list-item .process .line {
+            position: absolute;
+            left: -20%;
+            bottom: 50%;
+            width: 140%;
+            height: 1px;
+            background-color: #394048;
+        }
+
+        .abilities .abilities__list .abilities__list-item:hover .process .circle {
+            background-color: #D0A85C;
+        }
+
+        .abilities .abilities__list .abilities__list-item.active .process .circle {
+            opacity: 0;
+        }
+
+        .abilities .abilities__list .abilities__list-item .canvas-rect-wrapper {
+            visibility: hidden;
+            opacity: 0;
+            -moz-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .abilities .abilities__list .abilities__list-item.active .canvas-rect-wrapper {
+            visibility: visible;
+            opacity: 1;
+        }
+
+    .abilities .abilities__list .active-circle {
+        bottom: 12px;
+        left: 40px;
+        background-color: #D0A85C;
+        width: 9px;
+        height: 9px;
+        -moz-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+        z-index: 2;
+    }
+
+        .abilities .abilities__list .active-circle::after {
+            content: "";
+            position: absolute;
+            inset: -5.5px -5.2px -5.2px -5.5px;
+            border: 2px solid #D0A85C;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+    .abilities .abilities__list .ability-line {
+        left: -300px;
+        right: -300px;
+        bottom: 16px;
+        height: 1px;
+        width: 200%;
+        background-color: #394048;
+    }
+
+    .abilities .abilities__description .abilities__description-item {
+        visibility: hidden;
+        opacity: 0;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .abilities .abilities__description .abilities__description-item.active {
+            visibility: visible;
+            opacity: 1;
+            -moz-transition: all 0.3s ease-in-out 0.3s;
+            -o-transition: all 0.3s ease-in-out 0.3s;
+            -webkit-transition: all 0.3s ease-in-out 0.3s;
+            transition: all 0.3s ease-in-out 0.3s;
+        }
+
+        .abilities .abilities__description .abilities__description-item .abilities__description-key {
+            color: #7E7E7E;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+        }
+
+        .abilities .abilities__description .abilities__description-item .abilities__description-name {
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .abilities .abilities__description .abilities__description-item .abilities__description-desc {
+            letter-spacing: 0.7px;
+            line-height: 19.6px;
+        }
+
+    .abilities .section-content--right {
+        flex-basis: 100%;
+    }
+
+        .abilities .section-content--right .video-wrapper {
+            padding-top: 56.25%;
+        }
+
+            .abilities .section-content--right .video-wrapper video {
+                visibility: hidden;
+                opacity: 0;
+                -moz-transition: all 0.3s ease-in-out;
+                -o-transition: all 0.3s ease-in-out;
+                -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+                -o-object-fit: cover;
+                object-fit: cover;
+                -o-object-position: center center;
+                object-position: center center;
+            }
+
+            .abilities .section-content--right .video-wrapper .active video {
+                visibility: visible;
+                opacity: 1;
+            }

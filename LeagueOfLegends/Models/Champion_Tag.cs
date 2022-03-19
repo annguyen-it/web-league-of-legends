@@ -12,17 +12,13 @@ namespace LeagueOfLegends.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Spell
+    public partial class Champion_Tag
     {
-        public string id { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
-        public byte maxRank { get; set; }
-        public string image { get; set; }
         public string idChampion { get; set; }
-        public int idNumber { get; set; }
-        public string keyboardKey { get; set; }
+        public byte idTag { get; set; }
+        public int id { get; set; }
     
         public virtual Champion Champion { get; set; }
+        public virtual Tag Tag { get; set; }
     }
 }

@@ -1,4 +1,8 @@
 ﻿@using LeagueOfLegends.Models
+@using LeagueOfLegends.Models.Components
+@using LeagueOfLegends.Models.Core
+@using System.Text.RegularExpressions
+
 @model Champion
 
 @{
@@ -10,10 +14,205 @@
   <link href="@Url.Content("~/Content/Views/Champions/ChampionDetails.css")" rel="stylesheet" />
 }
 
-<main>
+@{
+  string role = ViewBag.mainRole;
+  var roleImg = "~/Views/Shared/Svg/" + role + ".cshtml";
+  var difficulty = Model.ChampionInfo.difficulty <= 3
+        ? "low"
+        : Model.ChampionInfo.difficulty <= 7
+          ? "moderate"
+          : "high";
+  var abilities = Model.Spells.OrderBy(s => s.idNumber);
+}
 
-  <section class="overview">
+<main>
+  <!-- Overview -->
+  <section class="overview position-relative d-flex flex-column align-items-center text-white">
+    <div class="section-title start-0">Overview</div>
+    <div class="btn-list position-absolute">
+      <a class="position-relative d-block text-white text-uppercase text-decoration-none" href="@Url.Action("Index", "Champions")">
+        Champion list
+        <svg class="position-relative" fill="#ffffff" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 14 15">
+          <path d="M12.8 8.4V4.8S13 1.1 7 0h-.1c-6 1.1-5.8 4.8-5.8 4.8v3.6c0 1.9-.8 2.5-.8 2.5C1.5 15.3 4.5 15 4.5 15c-1.6-2.1 0-5.8 0-5.8-2.3-.3-1.9-2.7-1.7-3.4 0 0 2.2-.1 3.3 1.6v4.2l.9.9.8-.8V7.5c1.2-1.8 3.3-1.7 3.3-1.6.2.7.6 3.1-1.7 3.3 0 0 1.6 3.8 0 5.8 0 0 3 .3 4.2-4.1.1 0-.8-.6-.8-2.5z"></path>
+        </svg>
+        @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(12, new Vertex().TopLeft().BottomRight())
+          .Color("#08D7F7")
+          .Fill("rgba(0,0,0, 0.5)")
+          .Animate("overview_champion-list-btn"))
+      </a>
+    </div>
+    <div class="section-background position-relative w-100">
+      <div class="section-background-wrapper position-absolute top-0 start-0 w-100 overflow-hidden">
+        <div class="section-background-img position-absolute top-0 start-0 w-100 overflow-hidden">
+          <img class="position-absolute w-100 h-100" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/@(Model.id)_0.jpg" />
+        </div>
+      </div>
+    </div>
+    <div class="section-content position-relative mx-auto py-4">
+      <div class="foreground-asset position-relative w-100 mx-auto overflow-hidden">
+        <img class="position-absolute w-100 h-100" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/@(Model.id)_0.jpg" />
+        <div class="gradient position-absolute start-0 end-0 bottom-0"></div>
+      </div>
+      <div class="dock position-relative">
+        <div class="position-relative">
+          <div class="dock__name text-uppercase fst-italic">
+            <div class="title">@Model.title</div>
+            <div class="name font-beaufort">
+              <span>@Model.name</span>
+            </div>
+          </div>
+          <div class="dock__info d-flex">
+            <div class="specs w-50 d-flex justify-content-around text-uppercase">
+              <div class="specs__role d-flex flex-column align-items-center">
+                @Html.Partial(roleImg, new SvgAttr(36, "#D0A85C"))
+                <div class="mt-3">Role</div>
+                <div>@role</div>
+              </div>
+              <div class="specs__difficulty">
+                <div class="difficulty-wrapper d-flex justify-content-center align-items-center">
+                  <div class="difficulty @difficulty d-flex">
+                    <span class="d-block h-100"></span>
+                    <span class="d-block h-100"></span>
+                    <span class="d-block h-100 me-0"></span>
+                  </div>
+                </div>
+                <div class="mt-3">Difficulty</div>
+                <div>@difficulty</div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="lore w-50">
+              <p>@Model.blurb</p>
+            </div>
+          </div>
+        </div>
+        <div class="divider w-100"></div>
+        <div class="mastery position-relative py-3 d-flex justify-content-center text-uppercase">
+          <div class="mx-4">Champion Mastery</div>
+          <ul class="m-0 p-0 d-flex">
+            <li class="mx-4">
+              <a class="text-white text-decoration-none" href="https://euw.op.gg/champion/@Model.id/statistics">op.gg</a>
+            </li>
+            <li class="mx-4">
+              <a class="text-white text-decoration-none" href="https://u.gg/lol/champions/@Model.id/build">u.gg</a>
+            </li>
+            <li class="mx-4">
+              <a class="text-white text-decoration-none" href="https://www.probuilds.net/champions/details/@Model.id">probuilds.net</a>
+            </li>
+          </ul>
+        </div>
+        @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20)
+          .Color("rgba(255, 255, 255, 0.2)")
+          .Position(new Position(90, 0, 0, 0))
+          .Resizable()
+          .Avoid(".overview .section-content .dock .dock__name .name span"))
+      </div>
+    </div>
+    <svg width="17" height="58" fill="none" xmlns="https://www.w3.org/2000/svg" class="style__ScrollIndicator-sc-8gkpub-29 bqGcqn">
+      <path d="M8.065 39.333l-5.02 5.02 5.02 5.021 5.02-5.02-5.02-5.02z"></path>
+      <path d="M8.065 44.379L5.59 46.854l2.475 2.474 2.475-2.474-2.475-2.475z">
+      </path>
+      <path d="M4.6 47.8l-1.5 1.5 5 5 5-5-1.5-1.5M8.1 4.2v30"></path>
+    </svg>
   </section>
-  <section class="abilities"></section>
+
+  <!-- Abilities -->
+  <section class="abilities position-relative text-white">
+    <div class="section-title">Abilites</div>
+    <div class="background position-absolute">
+      @Html.Partial(roleImg, new SvgAttr(new Size("unset", "calc(100% - 30px)"), "#07121A"))
+    </div>
+    <div class="section-content position-relative">
+      <div class="d-flex">
+        <div class="section-content--left flex-shrink-1">
+          <h2 class="font-beaufort position-relative text-uppercase fst-italic">Abilites</h2>
+          <div class="d-flex">
+            <div class="flex-grow-1 flex-shrink-1"></div>
+            <div class="abilities__list position-relative d-flex pt-5">
+              <div class="abilities__list-item d-flex flex-column justify-content-end active" role="button">
+                <div class="abilities__list-item__img position-relative" title="@Model.Passive.name">
+                  <img id="abilities__list-item__img-P" src="https://ddragon.leagueoflegends.com/cdn/12.5.1/img/passive/@Model.Passive.image" alt="@Model.Passive.name" />
+                  @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().TopRight())
+                    .Color("#D0A85C")
+                    .Position(new Position(-6))
+                    .Async("#abilities__list-item__img-P"))
+                </div>
+                <div class="spacer mt-1 d-flex justify-content-center align-items-end">
+                  <div></div>
+                </div>
+                <div class="process position-relative d-flex justify-content-center">
+                  <div class="circle position-relative rounded-circle"></div>
+                  <div class="line"></div>
+                </div>
+              </div>
+              @foreach (var ability in abilities)
+              {
+                <div class="abilities__list-item d-flex flex-column justify-content-end" role="button">
+                  <div class="abilities__list-item__img position-relative" title="@ability.name">
+                    @{ var id = $"abilities__list-item__img-{ability.keyboardKey}"; }
+                    <img id="@id" src="https://ddragon.leagueoflegends.com/cdn/12.5.1/img/spell/@ability.image" alt="@ability.name" />
+                    @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(20, new Vertex().TopRight())
+                      .Color("#D0A85C")
+                      .Position(new Position(-6))
+                      .Async($"#{id}"))
+                  </div>
+                  <div class="spacer mt-1 d-flex justify-content-center align-items-end">
+                    <div></div>
+                  </div>
+                  <div class="process position-relative d-flex justify-content-center">
+                    <div class="circle position-relative rounded-circle"></div>
+                    <div class="line"></div>
+                  </div>
+                </div>
+              }
+              <div class="active-circle position-absolute rounded-circle"></div>
+              <div class="ability-line position-absolute rounded-circle"></div>
+            </div>
+            <div class="flex-grow-1 flex-shrink-1"></div>
+          </div>
+          <div class="abilities__description position-relative w-100 d-none">
+            <div class="abilities__description-item position-absolute start-0 w-100 active">
+              <div class="abilities__description-key text-uppercase">Passive</div>
+              <div class="abilities__description-name fw-bold text-uppercase">@Model.Passive.name</div>
+              <p class="abilities__description-desc">@Regex.Replace(Model.Passive.description, "<.*?>", String.Empty)</p>
+            </div>
+            @foreach (var ability in abilities)
+            {
+              <div class="abilities__description-item position-absolute start-0 w-100">
+                <div class="abilities__description-key text-uppercase">@ability.keyboardKey</div>
+                <div class="abilities__description-name fw-bold text-uppercase">@ability.name</div>
+                <p class="abilities__description-desc">@Regex.Replace(ability.description, "<.*?>", String.Empty)</p>
+              </div>
+            }
+          </div>
+        </div>
+        <div class="section-content--right w-100 flex-grow-1 flex-shrink-1">
+          <div class="pt-5">
+            <div class="video-wrapper position-relative">
+              @foreach (var key in new string[] { "P", "Q", "W", "E", "R" })
+              {
+                <div class="position-absolute top-0 start-0 w-100 h-100">
+                  <video class="w-100 h-100" loop muted>
+                    <source src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0@(Model.key)/ability_0@(Model.key)_@(key)1.mp4" type="video/mp4" />
+                    <source src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0@(@Model.key)/ability_0@(Model.key)_@(key)1.webm" type="video/webm" />
+                  </video>
+                </div>
+              }
+              @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(40, new Vertex().TopRight())
+                .Color("rgba(255, 255, 255, 0.2)")
+                .Resizable()
+                .Position(new Position(8, -8)))
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skins -->
   <section class="skins"></section>
 </main>
+
+@section Scripts {
+  <script src="@Url.Content("~/Scripts/Site/Champions/ChampionDetails.js")"></script>
+}

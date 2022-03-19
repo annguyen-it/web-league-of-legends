@@ -1,0 +1,9 @@
+﻿@using LeagueOfLegends.Models.Components
+@model Svg
+
+<div class="svg-wrapper"
+     style="width: @(Model.attr.size.width); height: @(Model.attr.size.height)"
+     data-color="@Model.attr.color"
+     data-transition="@Model.attr.transition">
+  @Html.Raw(HttpUtility.HtmlDecode(Model.html))
+</div>

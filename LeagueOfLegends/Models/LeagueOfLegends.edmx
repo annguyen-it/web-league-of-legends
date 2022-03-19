@@ -25,6 +25,7 @@
           </Key>
           <Property Name="idChampion" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="idTag" Type="tinyint" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="ChampionInfo">
           <Key>
@@ -81,6 +82,8 @@
           <Property Name="maxRank" Type="tinyint" Nullable="false" />
           <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="idChampion" Type="varchar" MaxLength="20" />
+          <Property Name="idNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="keyboardKey" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="Tag">
           <Key>
@@ -246,12 +249,23 @@ warning 6002: The table/view 'LeagueOfLegends.dbo.Tip' does not have a primary k
           <Property Name="lore" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="parType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Champion_Tag" Relationship="Self.Champion_Tag_Champion_id_fk" FromRole="Champion" ToRole="Champion_Tag" />
           <NavigationProperty Name="ChampionInfo" Relationship="Self.ChampionInfo_Champion_id_fk" FromRole="Champion" ToRole="ChampionInfo" />
           <NavigationProperty Name="ChampionStat" Relationship="Self.ChampionStats_Champion_id_fk" FromRole="Champion" ToRole="ChampionStats" />
           <NavigationProperty Name="Passive" Relationship="Self.Passive_Champion_id_fk" FromRole="Champion" ToRole="Passive" />
           <NavigationProperty Name="Spells" Relationship="Self.Spell_Champion_id_fk" FromRole="Champion" ToRole="Spell" />
           <NavigationProperty Name="Tips" Relationship="Self.Tip_Champion_id_fk" FromRole="Champion" ToRole="Tip" />
-          <NavigationProperty Name="Tags" Relationship="Self.Champion_Tag" FromRole="Champion" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="Champion_Tag">
+          <Key>
+            <PropertyRef Name="idChampion" />
+            <PropertyRef Name="idTag" />
+          </Key>
+          <Property Name="idChampion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idTag" Type="Byte" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Champion" Relationship="Self.Champion_Tag_Champion_id_fk" FromRole="Champion_Tag" ToRole="Champion" />
+          <NavigationProperty Name="Tag" Relationship="Self.Champion_Tag_Tag_id_fk" FromRole="Champion_Tag" ToRole="Tag" />
         </EntityType>
         <EntityType Name="ChampionInfo">
           <Key>
@@ -311,6 +325,8 @@ warning 6002: The table/view 'LeagueOfLegends.dbo.Tip' does not have a primary k
           <Property Name="maxRank" Type="Byte" Nullable="false" />
           <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="idChampion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="idNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="keyboardKey" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Champion" Relationship="Self.Spell_Champion_id_fk" FromRole="Spell" ToRole="Champion" />
         </EntityType>
         <EntityType Name="Tag">
@@ -319,7 +335,7 @@ warning 6002: The table/view 'LeagueOfLegends.dbo.Tip' does not have a primary k
           </Key>
           <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Champions" Relationship="Self.Champion_Tag" FromRole="Tag" ToRole="Champion" />
+          <NavigationProperty Name="Champion_Tag" Relationship="Self.Champion_Tag_Tag_id_fk" FromRole="Tag" ToRole="Champion_Tag" />
         </EntityType>
         <EntityType Name="Tip">
           <Key>
@@ -332,6 +348,18 @@ warning 6002: The table/view 'LeagueOfLegends.dbo.Tip' does not have a primary k
           <Property Name="forAlly" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Champion" Relationship="Self.Tip_Champion_id_fk" FromRole="Tip" ToRole="Champion" />
         </EntityType>
+        <Association Name="Champion_Tag_Champion_id_fk">
+          <End Role="Champion" Type="Self.Champion" Multiplicity="1" />
+          <End Role="Champion_Tag" Type="Self.Champion_Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Champion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Champion_Tag">
+              <PropertyRef Name="idChampion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="ChampionInfo_Champion_id_fk">
           <End Role="Champion" Type="Self.Champion" Multiplicity="1" />
           <End Role="ChampionInfo" Type="Self.ChampionInfo" Multiplicity="0..1" />
@@ -392,18 +420,31 @@ warning 6002: The table/view 'LeagueOfLegends.dbo.Tip' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Champion_Tag">
-          <End Role="Champion" Type="Self.Champion" Multiplicity="*" />
-          <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
+        <Association Name="Champion_Tag_Tag_id_fk">
+          <End Role="Tag" Type="Self.Tag" Multiplicity="1" />
+          <End Role="Champion_Tag" Type="Self.Champion_Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Champion_Tag">
+              <PropertyRef Name="idTag" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <EntityContainer Name="LeagueOfLegendsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Champions" EntityType="Self.Champion" />
+          <EntitySet Name="Champion_Tag" EntityType="Self.Champion_Tag" />
           <EntitySet Name="ChampionInfoes" EntityType="Self.ChampionInfo" />
           <EntitySet Name="ChampionStats" EntityType="Self.ChampionStat" />
           <EntitySet Name="Passives" EntityType="Self.Passive" />
           <EntitySet Name="Spells" EntityType="Self.Spell" />
           <EntitySet Name="Tags" EntityType="Self.Tag" />
           <EntitySet Name="Tips" EntityType="Self.Tip" />
+          <AssociationSet Name="Champion_Tag_Champion_id_fk" Association="Self.Champion_Tag_Champion_id_fk">
+            <End Role="Champion" EntitySet="Champions" />
+            <End Role="Champion_Tag" EntitySet="Champion_Tag" />
+          </AssociationSet>
           <AssociationSet Name="ChampionInfo_Champion_id_fk" Association="Self.ChampionInfo_Champion_id_fk">
             <End Role="Champion" EntitySet="Champions" />
             <End Role="ChampionInfo" EntitySet="ChampionInfoes" />
@@ -424,9 +465,9 @@ warning 6002: The table/view 'LeagueOfLegends.dbo.Tip' does not have a primary k
             <End Role="Champion" EntitySet="Champions" />
             <End Role="Tip" EntitySet="Tips" />
           </AssociationSet>
-          <AssociationSet Name="Champion_Tag" Association="Self.Champion_Tag">
-            <End Role="Champion" EntitySet="Champions" />
+          <AssociationSet Name="Champion_Tag_Tag_id_fk" Association="Self.Champion_Tag_Tag_id_fk">
             <End Role="Tag" EntitySet="Tags" />
+            <End Role="Champion_Tag" EntitySet="Champion_Tag" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -446,6 +487,15 @@ warning 6002: The table/view 'LeagueOfLegends.dbo.Tip' does not have a primary k
                 <ScalarProperty Name="lore" ColumnName="lore" />
                 <ScalarProperty Name="parType" ColumnName="parType" />
                 <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Champion_Tag">
+            <EntityTypeMapping TypeName="LeagueOfLegendsModel.Champion_Tag">
+              <MappingFragment StoreEntitySet="Champion_Tag">
+                <ScalarProperty Name="idChampion" ColumnName="idChampion" />
+                <ScalarProperty Name="idTag" ColumnName="idTag" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -506,6 +556,8 @@ warning 6002: The table/view 'LeagueOfLegends.dbo.Tip' does not have a primary k
                 <ScalarProperty Name="maxRank" ColumnName="maxRank" />
                 <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="idChampion" ColumnName="idChampion" />
+                <ScalarProperty Name="idNumber" ColumnName="idNumber" />
+                <ScalarProperty Name="keyboardKey" ColumnName="keyboardKey" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -526,14 +578,6 @@ warning 6002: The table/view 'LeagueOfLegends.dbo.Tip' does not have a primary k
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Champion_Tag" TypeName="LeagueOfLegendsModel.Champion_Tag" StoreEntitySet="Champion_Tag">
-            <EndProperty Name="Champion">
-              <ScalarProperty Name="id" ColumnName="idChampion" />
-            </EndProperty>
-            <EndProperty Name="Tag">
-              <ScalarProperty Name="id" ColumnName="idTag" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

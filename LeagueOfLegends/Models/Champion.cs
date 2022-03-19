@@ -17,9 +17,9 @@ namespace LeagueOfLegends.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Champion()
         {
+            this.Champion_Tag = new HashSet<Champion_Tag>();
             this.Spells = new HashSet<Spell>();
             this.Tips = new HashSet<Tip>();
-            this.Tags = new HashSet<Tag>();
         }
     
         public string id { get; set; }
@@ -31,6 +31,8 @@ namespace LeagueOfLegends.Models
         public string parType { get; set; }
         public string image { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Champion_Tag> Champion_Tag { get; set; }
         public virtual ChampionInfo ChampionInfo { get; set; }
         public virtual ChampionStat ChampionStat { get; set; }
         public virtual Passive Passive { get; set; }
@@ -38,7 +40,5 @@ namespace LeagueOfLegends.Models
         public virtual ICollection<Spell> Spells { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tip> Tips { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tag> Tags { get; set; }
     }
 }

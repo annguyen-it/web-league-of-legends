@@ -4,20 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="08a07e4622644a299986f8b657946eb4" Name="Diagram1">
-        <EntityTypeShape EntityType="LeagueOfLegendsModel.Champion" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="LeagueOfLegendsModel.ChampionInfo" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LeagueOfLegendsModel.ChampionStat" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="LeagueOfLegendsModel.Passive" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LeagueOfLegendsModel.Spell" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="LeagueOfLegendsModel.Tag" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LeagueOfLegendsModel.Tip" Width="1.5" PointX="3" PointY="18.875" IsExpanded="true" />
+      <Diagram DiagramId="af3b80bcdc4340d6b93db68ae65b9792" Name="Diagram1">
+        <EntityTypeShape EntityType="LeagueOfLegendsModel.Champion" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeagueOfLegendsModel.Champion_Tag" Width="1.5" PointX="6" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeagueOfLegendsModel.ChampionInfo" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeagueOfLegendsModel.ChampionStat" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeagueOfLegendsModel.Passive" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeagueOfLegendsModel.Spell" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeagueOfLegendsModel.Tag" Width="1.5" PointX="3.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LeagueOfLegendsModel.Tip" Width="1.5" PointX="3" PointY="21" IsExpanded="true" />
+        <AssociationConnector Association="LeagueOfLegendsModel.Champion_Tag_Champion_id_fk" ManuallyRouted="false" />
         <AssociationConnector Association="LeagueOfLegendsModel.ChampionInfo_Champion_id_fk" ManuallyRouted="false" />
         <AssociationConnector Association="LeagueOfLegendsModel.ChampionStats_Champion_id_fk" ManuallyRouted="false" />
         <AssociationConnector Association="LeagueOfLegendsModel.Passive_Champion_id_fk" ManuallyRouted="false" />
         <AssociationConnector Association="LeagueOfLegendsModel.Spell_Champion_id_fk" ManuallyRouted="false" />
         <AssociationConnector Association="LeagueOfLegendsModel.Tip_Champion_id_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="LeagueOfLegendsModel.Champion_Tag" ManuallyRouted="false" />
+        <AssociationConnector Association="LeagueOfLegendsModel.Champion_Tag_Tag_id_fk" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

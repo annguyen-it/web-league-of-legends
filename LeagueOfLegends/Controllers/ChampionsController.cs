@@ -20,13 +20,20 @@ namespace LeagueOfLegends.Controllers
 
         public ViewResult ChampionDetails(string id)
         {
-            var xx = db.Champions.Count();
-            Champion champion = db.Champions.FirstOrDefault(x => x.id == id);
+            var champion = db.Champions.FirstOrDefault(x => x.id == id);
             if (champion == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
+
+            var mainRoleId = champion.Champion_Tag
+                        .OrderBy(t => t.id)
+                        .Select(x => x.Tag)
+                        .ToList()[0].id;
+
+            ViewBag.mainRole = db.Tags.FirstOrDefault(tag => tag.id == mainRoleId).name;
+
             return View(champion);
         }
     }

@@ -26,6 +26,7 @@ namespace LeagueOfLegends.Models
         }
     
         public virtual DbSet<Champion> Champions { get; set; }
+        public virtual DbSet<Champion_Tag> Champion_Tag { get; set; }
         public virtual DbSet<ChampionInfo> ChampionInfoes { get; set; }
         public virtual DbSet<ChampionStat> ChampionStats { get; set; }
         public virtual DbSet<Passive> Passives { get; set; }

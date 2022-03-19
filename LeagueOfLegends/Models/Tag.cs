@@ -17,13 +17,13 @@ namespace LeagueOfLegends.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tag()
         {
-            this.Champions = new HashSet<Champion>();
+            this.Champion_Tag = new HashSet<Champion_Tag>();
         }
     
         public byte id { get; set; }
         public string name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Champion> Champions { get; set; }
+        public virtual ICollection<Champion_Tag> Champion_Tag { get; set; }
     }
 }

@@ -173,7 +173,12 @@
     <Compile Include="Models\ChampionStat.cs">
       <DependentUpon>LeagueOfLegends.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Champion_Tag.cs">
+      <DependentUpon>LeagueOfLegends.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Components\CanvasRect.cs" />
+    <Compile Include="Models\Components\Svg.cs" />
+    <Compile Include="Models\Core\Size.cs" />
     <Compile Include="Models\LeagueOfLegends.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -228,6 +233,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\assets\fighter.svg" />
     <Content Include="images\assets\home-bg.png" />
     <Content Include="images\assets\legends-of-runeterra.jpg" />
     <Content Include="images\favicon\favicon.ico" />
@@ -293,6 +299,7 @@
       <DependentUpon>LeagueOfLegends.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\imagesloaded.pkgd.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -304,7 +311,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Site\CanvasRect.js" />
+    <Content Include="Scripts\Site\Champions\ChampionDetails.js" />
     <Content Include="Scripts\Site\Shared\NavBar.js" />
+    <Content Include="Scripts\Site\Svg.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -325,6 +334,13 @@
     <Content Include="Views\Champions\ChampionsList.cshtml" />
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\Champions\ChampionDetails.cshtml" />
+    <Content Include="Views\Shared\Svg\Fighter.cshtml" />
+    <Content Include="Views\Components\Svg.cshtml" />
+    <Content Include="Views\Shared\Svg\Mage.cshtml" />
+    <Content Include="Views\Shared\Svg\Tank.cshtml" />
+    <Content Include="Views\Shared\Svg\Assassin.cshtml" />
+    <Content Include="Views\Shared\Svg\Marksman.cshtml" />
+    <Content Include="Views\Shared\Svg\Support.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
