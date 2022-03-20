@@ -23,6 +23,7 @@
           ? "moderate"
           : "high";
   var abilities = Model.Spells.OrderBy(s => s.idNumber);
+  var championKey = $"000{Model.key}".Substring($"000{Model.key}".Length - 3);
 }
 
 <main>
@@ -193,8 +194,8 @@
               {
                 <div class="position-absolute top-0 start-0 w-100 h-100">
                   <video class="w-100 h-100" loop muted>
-                    <source src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0@(Model.key)/ability_0@(Model.key)_@(key)1.mp4" type="video/mp4" />
-                    <source src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0@(@Model.key)/ability_0@(Model.key)_@(key)1.webm" type="video/webm" />
+                    <source src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0@(championKey)/ability_0@(championKey)_@(key)1.mp4" type="video/mp4" />
+                    <source src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0@(championKey)/ability_0@(championKey)_@(key)1.webm" type="video/webm" />
                   </video>
                 </div>
               }
