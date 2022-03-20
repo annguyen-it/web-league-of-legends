@@ -1,4 +1,4 @@
-﻿@using LeagueOfLegends.Models
+@using LeagueOfLegends.Models
 @using LeagueOfLegends.Models.Components
 @using LeagueOfLegends.Models.Core
 @using System.Text.RegularExpressions
@@ -176,14 +176,14 @@
             <div class="abilities__description-item position-absolute start-0 w-100 active">
               <div class="abilities__description-key text-uppercase">Passive</div>
               <div class="abilities__description-name fw-bold text-uppercase">@Model.Passive.name</div>
-              <p class="abilities__description-desc">@Regex.Replace(Model.Passive.description, "<.*?>", String.Empty)</p>
+              <p class="abilities__description-desc pe-5">@Regex.Replace(Model.Passive.description, "<.*?>", String.Empty)</p>
             </div>
             @foreach (var ability in abilities)
             {
               <div class="abilities__description-item position-absolute start-0 w-100">
                 <div class="abilities__description-key text-uppercase">@ability.keyboardKey</div>
                 <div class="abilities__description-name fw-bold text-uppercase">@ability.name</div>
-                <p class="abilities__description-desc">@Regex.Replace(ability.description, "<.*?>", String.Empty)</p>
+                <p class="abilities__description-desc pe-5">@Regex.Replace(ability.description, "<.*?>", String.Empty)</p>
               </div>
             }
           </div>
@@ -198,6 +198,13 @@
                     <source src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0@(championKey)/ability_0@(championKey)_@(key)1.mp4" type="video/mp4" />
                     <source src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0@(championKey)/ability_0@(championKey)_@(key)1.webm" type="video/webm" />
                   </video>
+                  <div class="no-video w-100 h-100 d-flex justify-content-center align-items-center d-none">
+                    <img class="position-absolute top-0 start-0 w-100 h-100" src="@Url.Content("~/images/assets/no-ability-background.jpg")" />
+                    <div class="no-video-content position-relative p-3">
+                      <img class="mx-auto mb-2 d-block" src="@Url.Content("~/images/assets/no-ability-icon.png")" />
+                      <div class="font-beaufort fst-italic text-center text-uppercase">Can't display this ability in video format</div>
+                    </div>
+                  </div>
                 </div>
               }
               @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(40, new Vertex().TopRight())

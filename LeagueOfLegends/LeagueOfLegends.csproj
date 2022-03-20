@@ -239,6 +239,8 @@
     <Content Include="images\assets\fighter.svg" />
     <Content Include="images\assets\home-bg.png" />
     <Content Include="images\assets\legends-of-runeterra.jpg" />
+    <Content Include="images\assets\no-ability-background.jpg" />
+    <Content Include="images\assets\no-ability-icon.png" />
     <Content Include="images\favicon\favicon.ico" />
     <Content Include="fonts\BeaufortforLOL-Bold.woff" />
     <Content Include="fonts\BeaufortforLOL-HeavyItalic.woff" />

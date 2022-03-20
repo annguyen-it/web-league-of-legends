@@ -140,3 +140,7 @@
             background-color: rgba(128,128,128,.3);
             color: #fcfcfc;
         }
+
+    nav.navbar + * {
+        margin-top: 82px;
+    }

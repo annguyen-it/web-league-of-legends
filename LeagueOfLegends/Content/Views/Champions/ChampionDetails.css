@@ -1,4 +1,4 @@
-﻿.section-title {
+.section-title {
     position: absolute;
     display: flex;
     -webkit-align-items: center;
@@ -437,6 +437,29 @@
             .abilities .section-content--right .video-wrapper .active video {
                 visibility: visible;
                 opacity: 1;
+            }
+
+            .abilities .section-content--right .video-wrapper .no-video-content {
+                opacity: 0;
+                -moz-transition: all 0.3s ease-in-out;
+                -o-transition: all 0.3s ease-in-out;
+                -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .abilities .section-content--right .video-wrapper .active .no-video-content {
+                opacity: 1;
+            }
+
+
+            .abilities .section-content--right .video-wrapper .no-video-content img {
+                width: 160px;
+                height: 116px;
+            }
+
+            .abilities .section-content--right .video-wrapper .no-video-content div {
+                max-width: 325px;
+                font-size: 20px;
             }
 
 .skins .section-title {

@@ -1,4 +1,4 @@
-﻿function getAbilityItems() {
+function getAbilityItems() {
     return $('.abilities .abilities__list .abilities__list-item');
 }
 
@@ -25,15 +25,15 @@ function playAbilityVideo(index) {
         return;
     }
 
-    $($('.abilities .section-content--right .video-wrapper > *')[index]).find('video')[0].load();
-
     if (currentIndex >= 0) {
+        $($('.abilities .section-content--right .video-wrapper > *')[currentIndex]).find('video')[0]?.pause();
+        $($('.abilities .section-content--right .video-wrapper > *')[index]).find('video')[0]?.load();
         currentActive.removeClass('active');
     }
     const newActive = $($('.abilities .section-content--right .video-wrapper > *')[index]);
     newActive.addClass('active');
     setTimeout(() => {
-        newActive.find('video')[0].play();
+        newActive.find('video')[0]?.play();
     }, 150)
 }
 
