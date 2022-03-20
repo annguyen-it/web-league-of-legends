@@ -1,4 +1,4 @@
-.section-title {
+﻿.section-title {
     position: absolute;
     display: flex;
     -webkit-align-items: center;
@@ -502,7 +502,7 @@
         }
 
         .skins .carousel-skins .carousel-indicators .carousel-skins-list-wrapper {
-            overflow-y: visible;
+            overflow-y: clip;
         }
 
         .skins .carousel-skins .carousel-indicators .carousel-skins-list > li {

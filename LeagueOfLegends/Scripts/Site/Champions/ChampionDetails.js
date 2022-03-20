@@ -1,4 +1,4 @@
-function getAbilityItems() {
+﻿function getAbilityItems() {
     return $('.abilities .abilities__list .abilities__list-item');
 }
 
@@ -37,10 +37,19 @@ function playAbilityVideo(index) {
     }, 150)
 }
 
-function handleClickSkin() {
-    $('.carousel-skin-item').click(function () {
-        const index = $(this).index()
-        $('.carousel-skins-list').css('top', Math.min(60 - 100 * (index - 1), 60));
+function handleAbilityVideoError() {
+    $('.section-content--right video').each(function () {
+        const video = $(this);
+        video.find('source').last().on('error', function () {
+            video.parent().find('.no-video').removeClass('d-none');
+            video.remove();
+        })
+    })
+}
+
+function handleCarouselSlide() {
+    document.getElementById('carouselSkins').addEventListener('slide.bs.carousel', function (e) {
+        $('.carousel-skins-list').css('top', Math.min(60 - 100 * (e.to - 1), 60));
     })
 }
 
@@ -60,7 +69,8 @@ $(document).ready(function () {
         })
     })
 
-    handleClickSkin();
+    handleAbilityVideoError();
+    handleCarouselSlide();
 
     $('.abilities .abilities__description').removeClass('d-none');
 })

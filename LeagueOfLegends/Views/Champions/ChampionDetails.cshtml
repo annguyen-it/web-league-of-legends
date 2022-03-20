@@ -1,4 +1,4 @@
-@using LeagueOfLegends.Models
+﻿@using LeagueOfLegends.Models
 @using LeagueOfLegends.Models.Components
 @using LeagueOfLegends.Models.Core
 @using System.Text.RegularExpressions
@@ -221,10 +221,10 @@
   <!-- Skins -->
   <section class="skins">
     <div class="section-title">Available Skins</div>
-    <div id="carouselSkins" class="carousel-skins carousel slide carousel-fade" data-bs-touch="false" data-interval="false">
+    <div id="carouselSkins" class="carousel-skins carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
       <div class="carousel-indicators flex-column justify-content-start top-0 m-0 text-uppercase">
         <h2 class="font-beaufort position-relative text-white fst-italic">Available Skins</h2>
-        <div class="carousel-skins-list-wrapper overflow-hidden">
+        <div class="carousel-skins-list-wrapper">
           <ul class="carousel-skins-list position-relative h-100 d-flex flex-column p-0">
             @for (int i = 0; i < championSkins.Count; i++)
             {
