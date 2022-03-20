@@ -99,6 +99,20 @@ function animateOut(canvas) {
     draw(canvas);
 }
 
+function onHoverIn(canvas, animateId) {
+    $(canvas).attr('data-animate-in', true);
+    clearInterval(animateInInterval[animateId]);
+    clearInterval(animateOutInterval[animateId]);
+    animateInInterval[animateId] = setInterval(animateIn, 1, canvas);
+}
+
+function onHoverOut(canvas, animateId) {
+    $(canvas).attr('data-animate-in', false);
+    clearInterval(animateInInterval[animateId]);
+    clearInterval(animateOutInterval[animateId]);
+    animateOutInterval[animateId] = setInterval(animateOut, 1, canvas);
+}
+
 $(document).ready(function () {
     $('.canvas-rect-wrapper').each(function () {
         $(this).parent().addClass('position-relative');
@@ -131,19 +145,21 @@ $(document).ready(function () {
         const animateId = $(canvas).attr('data-animate-id');
         if (animateId != '') {
             $(canvas).attr('data-animate-in', false);
-            $(this).hover(function (e) {
-                e.stopPropagation();
-                $(canvas).attr('data-animate-in', true);
-                clearInterval(animateInInterval[animateId]);
-                clearInterval(animateOutInterval[animateId]);
-                animateInInterval[animateId] = setInterval(animateIn, 1, canvas);
-            }, function (e) {
-                e.stopPropagation();
-                $(canvas).attr('data-animate-in', false);
-                clearInterval(animateInInterval[animateId]);
-                clearInterval(animateOutInterval[animateId]);
-                animateOutInterval[animateId] = setInterval(animateOut, 1, canvas);
+            $(this).hover(function () {
+                onHoverIn(canvas, animateId);
+            }, function () {
+                onHoverOut(canvas, animateId);
             });
+
+            const hoverExtends = $(canvas).attr('data-hover-extends');
+            if (hoverExtends) {
+                console.log(hoverExtends);
+                $(hoverExtends).hover(function () {
+                    onHoverIn(canvas, animateId);
+                }, function () {
+                    onHoverOut(canvas, animateId);
+                });
+            }
         }
     })
 });

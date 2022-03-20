@@ -47,6 +47,7 @@
         public int width;
         public bool resizable;
         public string animateId;
+        public string hoverExtends;
         public string color;
         public Position position;
         public string avoidId;
@@ -59,7 +60,7 @@
             this.border = border;
             this.width = width;
             resizable = false;
-            animateId = "";
+            animateId = hoverExtends = "";
             color = "#ABABAB";
             position = new Position();
         }
@@ -73,9 +74,10 @@
             return this;
         }
 
-        public CanvasRect Animate(string id)
+        public CanvasRect Animate(string id, string hoverExtends = "")
         {
             animateId = id;
+            this.hoverExtends = hoverExtends;
             return this;
         }
 

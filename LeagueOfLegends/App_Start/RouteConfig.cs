@@ -10,10 +10,15 @@ namespace LeagueOfLegends
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "IndexSearch",
-                url: "{controller}/{id}",
-                defaults: new { action = "Index" },
-                constraints: new { action = "Index"}
+                name: "ChampionsList",
+                url: "Champions",
+                defaults: new { action = "Index", controller = "Champions" }
+            );
+
+            routes.MapRoute(
+                name: "ChampionsDetails",
+                url: "Champions/{id}",
+                defaults: new { action = "ChampionDetails", controller = "Champions", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(

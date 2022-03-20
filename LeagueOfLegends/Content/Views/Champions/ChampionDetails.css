@@ -52,7 +52,7 @@
 
             .overview .btn-list a span,
             .overview .btn-list a svg {
-                /*                z-index: 1*/
+                z-index: 2;
             }
 
             .overview .btn-list a svg {
@@ -97,7 +97,7 @@
         }
 
     .overview .foreground-asset {
-        max-width: 1335px;
+        max-width: 1215px;
         padding-bottom: 59%;
     }
 
@@ -108,7 +108,7 @@
         }
 
     .overview .dock {
-        margin: -12rem 3.75rem 0;
+        margin: -18rem 3.75rem 0;
     }
 
     .overview .dock__name {
