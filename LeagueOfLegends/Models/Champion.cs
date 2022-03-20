@@ -18,6 +18,7 @@ namespace LeagueOfLegends.Models
         public Champion()
         {
             this.Champion_Tag = new HashSet<Champion_Tag>();
+            this.Skins = new HashSet<Skin>();
             this.Spells = new HashSet<Spell>();
             this.Tips = new HashSet<Tip>();
         }
@@ -36,6 +37,8 @@ namespace LeagueOfLegends.Models
         public virtual ChampionInfo ChampionInfo { get; set; }
         public virtual ChampionStat ChampionStat { get; set; }
         public virtual Passive Passive { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Skin> Skins { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Spell> Spells { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

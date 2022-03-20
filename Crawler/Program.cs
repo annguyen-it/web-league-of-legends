@@ -21,7 +21,34 @@ namespace Crawler
             using var connection = new SqlConnection(ConnectionString);
             connection.Open();
 
-            // Insert champions
+            //InsertChampions(champions, connection);
+            //InsertTags(champions, connection);
+            //InsertChampionInfo(champions, connection);
+            //InsertChampionStats(champions, connection);
+            //InsertChampionPassive(champions, connection);
+            //InsertChampionSpells(champions, connection);
+            //InsertTips(champions, connection);
+            InsertChampionSkins(champions, connection);
+
+            connection.Close();
+        }
+
+        private static JObject ProcessChampions()
+        {
+            var data = client.GetStringAsync($"https://ddragon.leagueoflegends.com/cdn/{Version}/data/en_US/champion.json").Result;
+            var obj = JObject.Parse(data);
+            return obj;
+        }
+
+        private static JObject ProcessChampion(string id)
+        {
+            var data = client.GetStringAsync($"https://ddragon.leagueoflegends.com/cdn/{Version}/data/en_US/champion/{id}.json").Result;
+            var obj = JObject.Parse(data);
+            return obj;
+        }
+
+        static void InsertChampions(Dictionary<string, Champion> champions, SqlConnection connection)
+        {
             foreach (var champion in champions.Values)
             {
                 Console.WriteLine(champion.Name);
@@ -30,8 +57,10 @@ namespace Crawler
                 Console.WriteLine(query);
                 new SqlCommand(query, connection).ExecuteNonQuery();
             }
+        }
 
-            // Insert tags
+        static void InsertTags(Dictionary<string, Champion> champions, SqlConnection connection)
+        {
             var tags = new Dictionary<string, int>();
             foreach (var champion in champions.Values)
             {
@@ -50,8 +79,10 @@ namespace Crawler
                     new SqlCommand(query, connection).ExecuteNonQuery();
                 });
             }
+        }
 
-            //Insert champion info
+        static void InsertChampionInfo(Dictionary<string, Champion> champions, SqlConnection connection)
+        {
             foreach (var champion in champions.Values)
             {
                 Console.WriteLine(champion.Name);
@@ -59,8 +90,10 @@ namespace Crawler
                 Console.WriteLine(query);
                 new SqlCommand(query, connection).ExecuteNonQuery();
             }
+        }
 
-            // Insert champion stats
+        static void InsertChampionStats(Dictionary<string, Champion> champions, SqlConnection connection)
+        {
             foreach (var champion in champions.Values)
             {
                 Console.WriteLine(champion.Name);
@@ -69,8 +102,10 @@ namespace Crawler
                 Console.WriteLine(query);
                 new SqlCommand(query, connection).ExecuteNonQuery();
             }
+        }
 
-            // Insert champion passive
+        static void InsertChampionPassive(Dictionary<string, Champion> champions, SqlConnection connection)
+        {
             foreach (var champion in champions.Values)
             {
                 var detailsResponse = ProcessChampion(champion.Id)["data"].ToObject<Dictionary<string, Champion>>();
@@ -83,8 +118,9 @@ namespace Crawler
                     new SqlCommand(query, connection).ExecuteNonQuery();
                 }
             }
-
-            // Insert champion spells
+        }
+        static void InsertChampionSpells(Dictionary<string, Champion> champions, SqlConnection connection)
+        {
             var keyboardKeys = new string[] { "Q", "W", "E", "R" };
             foreach (var champion in champions.Values)
             {
@@ -103,8 +139,10 @@ namespace Crawler
                     }
                 }
             }
+        }
 
-            // Insert tips
+        static void InsertTips(Dictionary<string, Champion> champions, SqlConnection connection)
+        {
             foreach (var champion in champions.Values)
             {
                 var detailsResponse = ProcessChampion(champion.Id)["data"].ToObject<Dictionary<string, Champion>>();
@@ -131,22 +169,30 @@ namespace Crawler
                     }
                 }
             }
-
-            connection.Close();
         }
 
-        private static JObject ProcessChampions()
+        static void InsertChampionSkins(Dictionary<string, Champion> champions, SqlConnection connection)
         {
-            var data = client.GetStringAsync($"https://ddragon.leagueoflegends.com/cdn/{Version}/data/en_US/champion.json").Result;
-            var obj = JObject.Parse(data);
-            return obj;
-        }
-
-        private static JObject ProcessChampion(string id)
-        {
-            var data = client.GetStringAsync($"https://ddragon.leagueoflegends.com/cdn/{Version}/data/en_US/champion/{id}.json").Result;
-            var obj = JObject.Parse(data);
-            return obj;
+            foreach (var champion in champions.Values)
+            {
+                var data = ProcessChampion(champion.Id)["data"];
+                var detailsResponse = data.ToObject<Dictionary<string, Champion>>();
+                foreach (var details in detailsResponse.Values)
+                {
+                    var i = 0;
+                    Console.WriteLine(champion.Name);
+                    if (details == null || details.Skins == null) continue;
+                    foreach (var skin in details.Skins)
+                    {
+                        var query = "INSERT INTO Skin(id, idChampion, number, name, isChroma) " +
+                        $"VALUES ('{skin.Id}', '{details.Id}', {data[details.Id]["skins"][i]["num"]}, '{skin.Name.Replace("'", "''")}', {(data[details.Id]["skins"][i]["chromas"].Value<bool>() ? 1 : 0)})";
+                        Console.WriteLine(query);
+                        new SqlCommand(query, connection).ExecuteNonQuery();
+                        i++;
+                    }
+                    Console.WriteLine();
+                }
+            }
         }
     }
 }

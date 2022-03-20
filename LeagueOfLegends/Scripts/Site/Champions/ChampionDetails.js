@@ -37,6 +37,13 @@ function playAbilityVideo(index) {
     }, 150)
 }
 
+function handleClickSkin() {
+    $('.carousel-skin-item').click(function () {
+        const index = $(this).index()
+        $('.carousel-skins-list').css('top', Math.min(60 - 100 * (index - 1), 60));
+    })
+}
+
 $(document).ready(function () {
     alignAbilitiesContent();
     drawAbilityCanvas(0);
@@ -52,6 +59,8 @@ $(document).ready(function () {
             playAbilityVideo(i);
         })
     })
+
+    handleClickSkin();
 
     $('.abilities .abilities__description').removeClass('d-none');
 })

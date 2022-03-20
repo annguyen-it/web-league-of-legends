@@ -30,6 +30,7 @@ namespace LeagueOfLegends.Models
         public virtual DbSet<ChampionInfo> ChampionInfoes { get; set; }
         public virtual DbSet<ChampionStat> ChampionStats { get; set; }
         public virtual DbSet<Passive> Passives { get; set; }
+        public virtual DbSet<Skin> Skins { get; set; }
         public virtual DbSet<Spell> Spells { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<Tip> Tips { get; set; }

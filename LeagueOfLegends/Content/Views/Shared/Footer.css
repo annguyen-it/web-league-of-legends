@@ -57,6 +57,7 @@ footer .section-0 {
         flex-basis: auto;
         font-size: 12px;
         letter-spacing: 1px;
+        line-height: 14px;
     }
 
     footer .section-0 > :last-child {

@@ -49,5 +49,8 @@ namespace Crawler.Model
 
         [JsonPropertyName("enemyTips")]
         public List<string>? EnemyTips { get; set; }
+
+        [JsonPropertyName("skins")]
+        public List<ChampionSkin>? Skins { get; set; }
     }
 }

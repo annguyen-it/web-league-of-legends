@@ -197,6 +197,9 @@
     <Compile Include="Models\Passive.cs">
       <DependentUpon>LeagueOfLegends.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Skin.cs">
+      <DependentUpon>LeagueOfLegends.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Spell.cs">
       <DependentUpon>LeagueOfLegends.tt</DependentUpon>
     </Compile>
