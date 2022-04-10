@@ -10,10 +10,33 @@
   <link href="@Url.Content("~/images/favicon/favicon.ico")" rel="shortcut icon" type="image/x-icon" />
   @Styles.Render("~/Content/css")
   @Scripts.Render("~/bundles/modernizr")
+  <link href="@Url.Content("~/Content/Views/SignIn/Index.css")" rel="stylesheet" />
 </head>
 <body>
-  <div>
-    Login page
+  <div class="wrapper d-flex flex-column">
+    <div class="logo"></div>
+    <main class="d-flex justify-content-center flex-grow-1">
+      <div class="box d-flex flex-column bg-white">
+        <h2 class="text-center">Sign In</h2>
+        <div class="login">
+          <input class="w-100" type="text" />
+          <input class="w-100" type="password" />
+          <div class="other-way d-flex">
+            <button class="facebook w-100 rounded-3"></button>
+            <button class="google w-100 rounded-3"></button>
+            <button class="apple w-100 rounded-3"></button>
+          </div>
+          <div class="stay-sign-in d-flex align-items-center">
+            <input class="d-none" type="checkbox" id="stay-sign-in-cb" />
+            <div class="checkbox"></div>
+            <label for="stay-sign-in-cb">Stay signed in</label>
+          </div>
+        </div>
+        <div></div>
+        <div></div>
+      </div>
+    </main>
+    <div class="term"></div>
   </div>
 </body>
 </html>
