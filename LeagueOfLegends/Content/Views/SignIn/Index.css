@@ -1,0 +1,72 @@
+﻿.wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: url('../../../images/assets/sign-in-background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.box {
+    width: 25rem;
+    padding: 4.5rem 3rem 0;
+}
+
+    .box h2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+
+    .box .login > input {
+        margin-bottom: 12px;
+    }
+
+    .box .login > div {
+        margin-top: 12px;
+    }
+
+    .box .other-way {
+        gap: 10px;
+    }
+
+        .box .other-way button {
+            height: 2.25rem;
+            background-size: 1.125rem;
+            background-repeat: no-repeat;
+            border: 1px solid transparent;
+        }
+
+        .box .other-way .facebook {
+            background-image: url('../../../images/logo/facebook.svg');
+            background-position: center;
+            background-color: #1877f2;
+        }
+
+        .box .other-way .google {
+            background-image: url('../../../images/logo/google.svg');
+            background-position: center;
+            border-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .box .other-way .apple {
+            background-image: url('../../../images/logo/apple.svg');
+            background-position: center;
+            background-color: #000000;
+        }
+
+    .box .stay-sign-in .checkbox {
+        width: 18px;
+        height: 18px;
+        margin-right: 8.5px;
+        background-color: rgba(126,126,126,0.15);
+        background-size: 65%;
+        background-repeat: no-repeat;
+        background-position: center;
+        -moz-border-radius: 20%;
+        -webkit-border-radius: 20%;
+        border-radius: 20%;
+    }
+
+    .box .stay-sign-in #stay-sign-in-cb:checked + .checkbox {
+        background-image: url('../../../images/assets/check.svg');
+        background-color: #0bc4e2;
+    }

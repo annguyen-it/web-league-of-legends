@@ -14,37 +14,9 @@
         letter-spacing: 1.12px;
     }
 
-.menu-bar {
-    height: 60px;
-    width: 1300px;
-    border-color: #C1C1C1;
-    border-style: solid;
-    margin: 64px 24px;
-    text-decoration: none;
-    position: relative;
-    display: block;
-    color: rgb(202, 202, 202);
-    border-width: 0.8px;
-}
-
-.nav li {
-    padding: 15px 8px;
-    list-style-type: none;
-}
-
-    .nav li a {
-        text-decoration: none;
-        color: #C1C1C1;
-        font-family: inherit;
-        padding: 10px 5px 10px 5px;
-        text-transform: uppercase;
-        font-size: 12px;
-        font-family: Spiegel, "Arial Narrow", Arial, sans-serif;
-    }
-
-.champion-container {
-    max-width: 1440px;
-}
+        .champion-container {
+            max-width: 1440px;
+        }
 
 .champion-wrapper {
     margin: calc(4.5% - 20px) calc(4% - 20px) 0px;
@@ -66,6 +38,7 @@
 
     .champion-card:hover {
         clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0%, 100% 0%);
+
     }
 
         .champion-card:hover img {
@@ -104,3 +77,301 @@
     .champion-card:hover .name-tag p {
         padding-left: 12px;
     }
+.menu-bar {
+    height: 50px;
+    width:1295.06px;
+    box-sizing: border-box;
+    margin: 64px 28px;
+    text-decoration: none;
+    position: relative;
+    display: block;
+    color: rgb(202, 202, 202);
+}
+
+.menu-bar > *:not(canvas){
+    position:relative;
+    z-index:2;
+}
+
+    .menu-bar > .canvas-rect-wrapper {
+        z-index: 0;
+    }
+
+.step1_9 {
+    min-width: 138px;
+    height: 100%;
+    float: left;
+    position: relative;
+    transition: 0.36s;
+    flex: 0 1 auto;
+    display: flex;
+    line-height: 1.15;
+    text-size-adjust: 100%;
+    box-sizing:border-box;
+}
+.box {
+    cursor: pointer;
+    height: 100%;
+    min-height: 0px;
+    padding: 0px 30px;
+    border: 0px;
+    box-shadow: none;
+    background-color: transparent;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width:100%;
+    box-sizing:border-box;
+}
+.toppic_box{
+    top:19px;
+    padding-left:30px;
+    position:absolute;
+    box-sizing:border-box;
+}
+.iconn {
+    color: #C2902D;
+    height: 19px;
+    width: 19px;
+    position: absolute;
+    left: 6px;
+    top: -3px;
+    transition: left 250ms ease 0s;
+}
+.toppic {
+    position: static;
+    top: 12px;
+    color: black;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: 0px;
+    transform: none;
+    transition: color 360ms ease 0s;
+    text-transform:uppercase;
+    font-size:10px;
+}
+
+    .step1_9:hover .dropdown_control1 {
+        top: 0px;
+        bottom: 0px;
+    }
+    .step1_9:hover .iconn{
+        left:-0.1px;
+    }
+.dropdown_control1 {
+    content: "";
+    background-color: rgb(193, 193, 193);
+    top:10px;
+    bottom:10px;
+    left:138px;
+    width: 1px; 
+    transition: top 250ms ease 0s, bottom 250ms ease 0s;
+    position:absolute;
+   
+}
+
+.nav{ 
+    width:985.062px;
+    height:100%;
+    float:left;
+}
+    .nav ul {
+        height: 100%;
+        width: 100%;
+        text-align:center;
+    }
+    .nav li {
+        height:100%;
+        list-style-type: none;
+        display: inline;
+        padding:8px;
+        cursor:pointer;
+        box-sizing:border-box;
+    }
+
+        .nav li button {
+            text-decoration: none;
+            color: #C1C1C1;
+            font-family: inherit;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11.46px;
+            letter-spacing: 0.4px;
+            font-family: Spiegel, "Arial Narrow", Arial, sans-serif;
+            transition: 0.36s;
+            height: 100%;
+            background-color: transparent;
+            border-bottom: solid 3px;
+            border-bottom-color: transparent;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            display: inline-block;
+            padding:0px;
+        }
+      
+.dropdown_control2 {
+    content: "";
+    background-color: rgb(193, 193, 193);
+    float: left;
+    right: 170px;
+    top:10px;
+    bottom:10px;
+    width: 1px;
+    transition: top 250ms ease 0s, bottom 250ms ease 0s;
+    position:absolute;
+}
+.step9 {
+    height: 100%;
+    width: 170px;
+    float: left;
+    position: relative;
+    transition: 0.36s;
+    flex: 0 1 auto;
+    display: flex;
+    line-height: 1.15;
+    text-size-adjust: 100%;
+    box-sizing: border-box;
+}
+.box2 {
+    cursor: pointer;
+    height: 100%;
+    min-height: 0px;
+    padding: 0px 30px;
+    border: 0px;
+    box-shadow: none;
+    background-color: transparent;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.toppic_box2 {
+    top: 19px;
+    padding-right: 30px;
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.iconn2 {
+    color: #C2902D;
+    height: 19px;
+    width: 19px;
+    position: absolute;
+    left:80px;
+    top: -5px;
+    transition: left 360ms ease 0s;
+}
+
+.toppic2 {
+    position: static;
+    top: 12px;
+    color: black;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: 0px;
+    transform: none;
+    transition: color 1s ease 0s;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+.step9:hover .dropdown_control2 {
+    top: 0px;
+    bottom: 0px;
+}
+
+.step9:hover .iconn2 {
+    left: 84px;
+}
+
+.nav li:hover button {
+    color: black;
+}
+
+.amn {
+    height: 3px;
+    position:absolute;
+    transition:0.36s;
+}
+.amn-all .amn {
+    top: 47px;
+    left: 294px;
+    right: 684px;
+}
+    .amn-all:hover .amn {
+        background-color: #C2902D;
+        left:290px;
+        right:680px;
+    }
+.amn-ass .amn {
+    top: 47px;
+    left: 355px;
+    right: 628px;
+}
+
+.amn-ass:hover .amn {
+    background-color: #C2902D;
+    left: 348px;
+    right: 620px;
+}
+.amn-fighters .amn {
+    top: 47px;
+    left: 428px;
+    right: 557px;
+}
+
+.amn-fighters:hover .amn {
+    background-color: #C2902D;
+    left: 422px;
+    right: 546px;
+}
+.amn-mages .amn {
+    top: 47px;
+    left: 496px;
+    right: 489px;
+}
+
+.amn-mages:hover .amn {
+    background-color: #C2902D;
+    left: 490px;
+    right: 480px;
+}
+.amn-markmen .amn {
+    top: 47px;
+    left: 564px;
+    right: 410px;
+}
+
+.amn-markmen:hover .amn {
+    background-color: #C2902D;
+    left: 558px;
+    right: 406px;
+}
+.amn-supp .amn {
+    top: 47px;
+    left: 644px;
+    right: 340px;
+}
+
+.amn-supp:hover .amn {
+    background-color: #C2902D;
+    left: 636px;
+    right: 332px;
+}
+.amn-tank .amn {
+    top: 47px;
+    left: 709px;
+    right: 275px;
+}
+
+.amn-tank:hover .amn {
+    background-color: #C2902D;
+    left: 702px;
+    right: 268px;
+}
+.nav .amn-all .btn-all {
+    color: black;
+    border-bottom-color: #C2902D;
+}
