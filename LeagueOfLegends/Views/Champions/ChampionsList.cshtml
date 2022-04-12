@@ -6,11 +6,11 @@
     <div class="row row-cols-3 row-cols-sm-4 row-cols-md-5 row-col-lg-5 g-3">
       @foreach (var champion in Model)
       {
-        <div class="col position-relative">
-          <a class="champion-card d-block" href="@Url.Action("ChampionDetails", "Champions", new {id = champion.id})">
+        <div class="col">
+          <a class="champion-card position-relative d-block" href="@Url.Action("ChampionDetails", "Champions", new {id = champion.id})">
             <img class="w-100" src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/@(champion.id)_0.jpg" alt="@champion.name" />
-            <div class="name-tag position-absolute bottom-0 w-100">
-              <p>@champion.name</p>
+            <div class="name-tag position-absolute start-0 bottom-0 w-100 d-flex align-items-center">
+              <p class="m-0 text-uppercase">@champion.name</p>
             </div>
           </a>
         </div>

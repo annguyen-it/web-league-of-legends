@@ -1,22 +1,22 @@
-﻿header {
-    margin-top: 2rem;
+﻿main {
+    padding-top: 3rem;
 }
 
-    header .line-2 {
-        font-size: calc(61.82px + 3.03vw);
-        line-height: 0.85;
-    }
+header .line-2 {
+    font-size: calc(61.82px + 3.03vw);
+    line-height: 0.85;
+}
 
-    header .line-3 {
-        max-width: 680px;
-        padding: 0 10%;
-        line-height: 1.6;
-        letter-spacing: 1.12px;
-    }
+header .line-3 {
+    max-width: 680px;
+    padding: 0 10%;
+    line-height: 1.6;
+    letter-spacing: 1.12px;
+}
 
-        .champion-container {
-            max-width: 1440px;
-        }
+.champion-container {
+    max-width: 1440px;
+}
 
 .champion-wrapper {
     margin: calc(4.5% - 20px) calc(4% - 20px) 0px;
@@ -38,7 +38,6 @@
 
     .champion-card:hover {
         clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0%, 100% 0%);
-
     }
 
         .champion-card:hover img {
@@ -48,24 +47,19 @@
         }
 
 .name-tag {
-    height: 56px;
-    margin-top: 288px;
+    height: 52px;
+    padding: 0 7%;
     background-color: rgb(6, 28, 37);
     cursor: pointer;
     position: absolute;
     z-index: 3;
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2)
 }
 
     .name-tag p {
         transition: 360ms;
-        font-size: 18px;
-        margin-left: 30px;
-        padding: 10px 0 10px 0;
+        font-size: 20px;
         color: white;
-        text-transform: uppercase;
-        font-style: oblique;
+        font-style: italic;
         font-family: "Beaufort for LOL", serif;
     }
 
@@ -75,11 +69,16 @@
 }
 
     .champion-card:hover .name-tag p {
-        padding-left: 12px;
+        -moz-transform: translateX(10px);
+        -ms-transform: translateX(10px);
+        -o-transform: translateX(10px);
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
     }
+
 .menu-bar {
     height: 50px;
-    width:1295.06px;
+    width: 1295.06px;
     box-sizing: border-box;
     margin: 64px 28px;
     text-decoration: none;
@@ -88,10 +87,10 @@
     color: rgb(202, 202, 202);
 }
 
-.menu-bar > *:not(canvas){
-    position:relative;
-    z-index:2;
-}
+    .menu-bar > *:not(canvas) {
+        position: relative;
+        z-index: 2;
+    }
 
     .menu-bar > .canvas-rect-wrapper {
         z-index: 0;
@@ -107,8 +106,9 @@
     display: flex;
     line-height: 1.15;
     text-size-adjust: 100%;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
+
 .box {
     cursor: pointer;
     height: 100%;
@@ -119,15 +119,17 @@
     background-color: transparent;
     -webkit-box-pack: center;
     justify-content: center;
-    width:100%;
-    box-sizing:border-box;
+    width: 100%;
+    box-sizing: border-box;
 }
-.toppic_box{
-    top:19px;
-    padding-left:30px;
-    position:absolute;
-    box-sizing:border-box;
+
+.toppic_box {
+    top: 19px;
+    padding-left: 30px;
+    position: absolute;
+    box-sizing: border-box;
 }
+
 .iconn {
     color: #C2902D;
     height: 19px;
@@ -137,6 +139,7 @@
     top: -3px;
     transition: left 250ms ease 0s;
 }
+
 .toppic {
     position: static;
     top: 12px;
@@ -147,46 +150,49 @@
     margin: 0px;
     transform: none;
     transition: color 360ms ease 0s;
-    text-transform:uppercase;
-    font-size:10px;
+    text-transform: uppercase;
+    font-size: 10px;
 }
 
-    .step1_9:hover .dropdown_control1 {
-        top: 0px;
-        bottom: 0px;
-    }
-    .step1_9:hover .iconn{
-        left:-0.1px;
-    }
+.step1_9:hover .dropdown_control1 {
+    top: 0px;
+    bottom: 0px;
+}
+
+.step1_9:hover .iconn {
+    left: -0.1px;
+}
+
 .dropdown_control1 {
     content: "";
     background-color: rgb(193, 193, 193);
-    top:10px;
-    bottom:10px;
-    left:138px;
-    width: 1px; 
+    top: 10px;
+    bottom: 10px;
+    left: 138px;
+    width: 1px;
     transition: top 250ms ease 0s, bottom 250ms ease 0s;
-    position:absolute;
-   
+    position: absolute;
 }
 
-.nav{ 
-    width:985.062px;
-    height:100%;
-    float:left;
+.nav {
+    width: 985.062px;
+    height: 100%;
+    float: left;
 }
+
     .nav ul {
         height: 100%;
         width: 100%;
-        text-align:center;
+        text-align: center;
     }
+
     .nav li {
-        height:100%;
+        height: 100%;
         list-style-type: none;
         display: inline;
-        padding:8px;
-        cursor:pointer;
-        box-sizing:border-box;
+        padding: 8px;
+        cursor: pointer;
+        box-sizing: border-box;
     }
 
         .nav li button {
@@ -207,20 +213,21 @@
             border-right: none;
             border-left: none;
             display: inline-block;
-            padding:0px;
+            padding: 0px;
         }
-      
+
 .dropdown_control2 {
     content: "";
     background-color: rgb(193, 193, 193);
     float: left;
     right: 170px;
-    top:10px;
-    bottom:10px;
+    top: 10px;
+    bottom: 10px;
     width: 1px;
     transition: top 250ms ease 0s, bottom 250ms ease 0s;
-    position:absolute;
+    position: absolute;
 }
+
 .step9 {
     height: 100%;
     width: 170px;
@@ -233,6 +240,7 @@
     text-size-adjust: 100%;
     box-sizing: border-box;
 }
+
 .box2 {
     cursor: pointer;
     height: 100%;
@@ -259,7 +267,7 @@
     height: 19px;
     width: 19px;
     position: absolute;
-    left:80px;
+    left: 80px;
     top: -5px;
     transition: left 360ms ease 0s;
 }
@@ -277,6 +285,7 @@
     text-transform: uppercase;
     font-size: 10px;
 }
+
 .step9:hover .dropdown_control2 {
     top: 0px;
     bottom: 0px;
@@ -292,19 +301,22 @@
 
 .amn {
     height: 3px;
-    position:absolute;
-    transition:0.36s;
+    position: absolute;
+    transition: 0.36s;
 }
+
 .amn-all .amn {
     top: 47px;
     left: 294px;
     right: 684px;
 }
-    .amn-all:hover .amn {
-        background-color: #C2902D;
-        left:290px;
-        right:680px;
-    }
+
+.amn-all:hover .amn {
+    background-color: #C2902D;
+    left: 290px;
+    right: 680px;
+}
+
 .amn-ass .amn {
     top: 47px;
     left: 355px;
@@ -316,6 +328,7 @@
     left: 348px;
     right: 620px;
 }
+
 .amn-fighters .amn {
     top: 47px;
     left: 428px;
@@ -327,6 +340,7 @@
     left: 422px;
     right: 546px;
 }
+
 .amn-mages .amn {
     top: 47px;
     left: 496px;
@@ -338,6 +352,7 @@
     left: 490px;
     right: 480px;
 }
+
 .amn-markmen .amn {
     top: 47px;
     left: 564px;
@@ -349,6 +364,7 @@
     left: 558px;
     right: 406px;
 }
+
 .amn-supp .amn {
     top: 47px;
     left: 644px;
@@ -360,6 +376,7 @@
     left: 636px;
     right: 332px;
 }
+
 .amn-tank .amn {
     top: 47px;
     left: 709px;
@@ -371,6 +388,7 @@
     left: 702px;
     right: 268px;
 }
+
 .nav .amn-all .btn-all {
     color: black;
     border-bottom-color: #C2902D;

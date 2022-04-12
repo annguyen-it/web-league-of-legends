@@ -8,75 +8,73 @@
 
 @section AddToHeader {
   <link href="@Url.Content("~/Content/Views/Champions/Index.css")" rel="stylesheet" />
-
-}
-<head>
   <script src="https://kit.fontawesome.com/a8d5fbfc7e.js" crossorigin="anonymous"></script>
-</head>
-<header class="text-center font-spiegel">
-  <div class="line-1 fw-bold fst-italic text-uppercase fs-5">Choose your</div>
-  <div class="line-2 font-beaufort fw-bolder fst-italic text-uppercase">Champion</div>
-  <p class="line-3 mt-2 mx-auto">With more than 140 champions, you’ll find the perfect match for your playstyle. Master one, or master them all.</p>
-</header>
-<div class="menu-bar">
-  <div class="step1_9">
-    <div class="box">
-      <div class="toppic_box">
-        <i class="fas fa-search iconn"></i>
-        <div class="toppic">search</div>
-      </div>
-      <div></div>
-    </div>
-    <div class="dropdown_control1"></div>
-  </div>
-
-  <div class="nav">
-    <ul>
-      <li class="amn-all">
-        <button class="btn-all">All</button>
-        <div class="amn"></div>
-      </li>
-      <li class="amn-ass">
-        <button>Assassins</button>
-        <div class="amn"></div>
-      </li>
-      <li class="amn-fighters">
-        <button>Fighters</button>
-        <div class="amn"></div>
-      </li>
-      <li class="amn-mages">
-        <button>Mages</button>
-        <div class="amn"></div>
-      </li>
-      <li class="amn-markmen">
-        <button>Marksmen</button>
-        <div class="amn"></div>
-      </li>
-      <li class="amn-supp">
-        <button>Supports</button>
-        <div class="amn"></div>
-      </li>
-      <li class="amn-tank">
-        <button>Tanks</button>
-        <div class="amn"></div>
-      </li>
-    </ul>
-    @*<div class="amn"></div>*@
-  </div>
-  <div class="step9">
-    <div class="box2">
-      <div class="toppic_box2">
-        <div class="toppic2">all difficulties</div>`
-        <i class="fa-solid fa-angle-down iconn2"></i>
-      </div>
-      <div></div>
-    </div>
-    <div class="dropdown_control2"></div>
-  </div>
-  @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(10, new Vertex().TopLeft().BottomRight())
-   .Color("#DFDDE9"))
-</div>
+}
 
 <main>
+  <header class="text-center font-spiegel">
+    <div class="line-1 fw-bold fst-italic text-uppercase fs-5">Choose your</div>
+    <div class="line-2 font-beaufort fw-bolder fst-italic text-uppercase">Champion</div>
+    <p class="line-3 mt-2 mx-auto">With more than 140 champions, you’ll find the perfect match for your playstyle. Master one, or master them all.</p>
+  </header>
+  <div class="menu-bar">
+    <div class="step1_9">
+      <div class="box">
+        <div class="toppic_box">
+          <i class="fas fa-search iconn"></i>
+          <div class="toppic">search</div>
+        </div>
+        <div></div>
+      </div>
+      <div class="dropdown_control1"></div>
+    </div>
+
+    <div class="nav">
+      <ul>
+        <li class="amn-all">
+          <button class="btn-all">All</button>
+          <div class="amn"></div>
+        </li>
+        <li class="amn-ass">
+          <button>Assassins</button>
+          <div class="amn"></div>
+        </li>
+        <li class="amn-fighters">
+          <button>Fighters</button>
+          <div class="amn"></div>
+        </li>
+        <li class="amn-mages">
+          <button>Mages</button>
+          <div class="amn"></div>
+        </li>
+        <li class="amn-markmen">
+          <button>Marksmen</button>
+          <div class="amn"></div>
+        </li>
+        <li class="amn-supp">
+          <button>Supports</button>
+          <div class="amn"></div>
+        </li>
+        <li class="amn-tank">
+          <button>Tanks</button>
+          <div class="amn"></div>
+        </li>
+      </ul>
+      @*<div class="amn"></div>*@
+    </div>
+    <div class="step9">
+      <div class="box2">
+        <div class="toppic_box2">
+          <div class="toppic2">all difficulties</div>`
+          <i class="fa-solid fa-angle-down iconn2"></i>
+        </div>
+        <div></div>
+      </div>
+      <div class="dropdown_control2"></div>
+    </div>
+    @Html.Partial("~/Views/Components/CanvasRect.cshtml", new CanvasRect(10, new Vertex().TopLeft().BottomRight())
+     .Color("#DFDDE9"))
+  </div>
+
   @Html.Action("ChampionsList")
 </main>

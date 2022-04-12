@@ -41,17 +41,29 @@
             background-color: #1877f2;
         }
 
+            .box .other-way .facebook:hover {
+                background-color: #0966de;
+            }
+
         .box .other-way .google {
             background-image: url('../../../images/logo/google.svg');
             background-position: center;
             border-color: rgba(0, 0, 0, 0.05);
         }
 
+            .box .other-way .google:hover {
+                background-color: #f7f7f7;
+            }
+
         .box .other-way .apple {
             background-image: url('../../../images/logo/apple.svg');
             background-position: center;
             background-color: #000000;
         }
+
+            .box .other-way .apple:hover {
+                background-color: #141414;
+            }
 
     .box .stay-sign-in .checkbox {
         width: 18px;
@@ -66,7 +78,40 @@
         border-radius: 20%;
     }
 
-    .box .stay-sign-in #stay-sign-in-cb:checked + .checkbox {
+    .box .stay-sign-in > *:hover ~ .checkbox,
+    .box .stay-sign-in > .checkbox:hover {
+        background-color: rgba(126,126,126,0.25);
+    }
+
+    .box .stay-sign-in #stay-sign-in-cb:checked ~ .checkbox {
         background-image: url('../../../images/assets/check.svg');
         background-color: #0bc4e2;
     }
+
+    .box .btn-submit {
+        width: 4.9rem;
+        height: 4.9rem;
+        background-color: #0bc4e2;
+        background-image: url('../../../images/assets/right-arrow.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 1.57rem;
+        -moz-border-radius: 1.5rem;
+        -webkit-border-radius: 1.5rem;
+        border-radius: 1.5rem;
+        border: none;
+    }
+
+    .box .links {
+        font-size: 10.5px;
+    }
+
+        .box .links a {
+            color: rgb(102, 102, 102);
+            letter-spacing: 0.8px;
+        }
+
+
+            .box .links a:hover {
+                color: #333;
+            }
